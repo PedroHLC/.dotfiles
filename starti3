@@ -1,0 +1,9 @@
+#!/bin/sh
+export TERMINAL=konsole
+
+setxkbmap -layout br &
+xmodmap ~/.Xmodmap &
+~/.fehbg &
+
+/usr/bin/i3
+
