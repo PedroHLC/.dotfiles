@@ -1,0 +1,9 @@
+[user]
+	email = root@pedrohlc.com
+	name = PedroHLC
+[core]
+	editor = nvim
+[rerere]
+	enabled = true
+[pull]
+	rebase = true
