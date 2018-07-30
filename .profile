@@ -1,5 +1,11 @@
+#!/bin/dash
 export EDITOR=nvim
 export VISUAL=nvim-gtk
 export SUDO_EDITOR=$EDITOR
-[ "$SSH_CLIENT" = "" ] && startx
 
+if [ "$SSH_CLIENT" = "" ]
+then
+    startx
+else
+    exec tmux
+fi
