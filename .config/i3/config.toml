@@ -43,9 +43,3 @@ block = "sound"
 block = "time"
 interval = 60
 format = "%Y/%m/%d %a %R"
-
-[[block]]
-block = "xrandr"
-icons = true
-resolution = true
-interval = 60

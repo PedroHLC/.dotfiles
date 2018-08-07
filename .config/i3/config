@@ -218,16 +218,16 @@ mode "$mode_favs" {
 bindsym $mod+Tab mode "$mode_favs"
 
 # Display favs
-set $monitorD DVI-D-1
+set $monitor2 DVI-D-1
 set $monitor1 HDMI-A-0
 set $monitor1_mode '1920x1080'
 set $mode_displays [1] M1->M2 | [2] M2->M1 | [3] M1==M2 | [9] M1 | [0] M2  | [w]allpaper
 mode "$mode_displays" {
-    bindsym 1 exec xrandr --output $monitor1 --mode $monitor1_mode --left-of $monitorD
-    bindsym 2 exec xrandr --output $monitor1 --mode $monitor1_mode --right-of $monitorD
-    bindsym 3 exec xrandr --output $monitor1 --mode $monitor1_mode --same-as $monitorD
-    bindsym 9 exec xrandr --output $monitorD --off --output HDMI-1 --auto
-    bindsym 0 exec xrandr --output $monitor1 --off --output DVI-I-1 --auto
+    bindsym 1 exec xrandr --output $monitor1 --mode $monitor1_mode --left-of $monitor2
+    bindsym 2 exec xrandr --output $monitor1 --mode $monitor1_mode --right-of $monitor2
+    bindsym 3 exec xrandr --output $monitor1 --mode $monitor1_mode --same-as $monitor2
+    bindsym 9 exec xrandr --output $monitor2 --off --output $monitor1 --auto
+    bindsym 0 exec xrandr --output $monitor1 --off --output $monitor2 --auto
     bindsym w exec ~/.fehbg
     bindsym $mod+Tab mode "$mode_network"
     bindsym $mod+Shift+Tab mode "$mode_favs"
