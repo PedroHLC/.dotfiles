@@ -163,16 +163,14 @@ bar {
     }
 }
 
-# Rule for Hubstaff weird block
-for_window [ class="Hubstaff" ] move workspace 9
-
 # Notebook buttons
 bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -5%
 bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute 0 toggle
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec intelbacklight -inc 10
+bindsym XF86MonBrightnessDown exec intelbacklight -dec 10
 bindsym XF86WLAN exec konsole -e nmtui; mode "default"
+bindsym $mod+t exec "yakuake"
 
 # No deco
 new_window pixel 1
@@ -180,7 +178,8 @@ hide_edge_borders both
 
 # Per window config
 for_window [class="Devtools"] floating enable, pixel 3
-
+for_window [class="Hubstaff"] move workspace 9
+for_window [instance="yakuake"] floating enable
 # Printscreen
 bindsym Print exec spectacle
 
@@ -199,14 +198,13 @@ mode "$mode_power" {
 bindsym $mod+Shift+e mode "$mode_power"
 
 # Favorite launcher
-set $mode_favs [f]irefox | [t]hunar | [v]olume | q[b]ittorrent | [d]iscord | [r]ambox | [T]elegram | [e]ditor | [S]potify
+set $mode_favs [f]irefox | [t]hunar | [v]olume | q[b]ittorrent | [r]ambox | [T]elegram | [e]ditor | [S]potify
 mode "$mode_favs" {
     bindsym f exec firefox-nightly; mode "default"
     bindsym d exec discord; mode "default"
     bindsym t exec thunar; mode "default"
     bindsym v exec pavucontrol; mode "default"
     bindsym b exec qbittorrent; mode "default"
-    bindsym r exec ((pidof rambox) || rambox); mode "default"
     bindsym e exec $editor; mode "default"
     bindsym Shift+s exec ((pidof spotify) || spotify); mode "default"
     bindsym Shift+t exec telegram-desktop; mode "default"

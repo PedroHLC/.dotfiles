@@ -8,7 +8,7 @@ Plug 'elmcast/elm-vim'
 Plug 'ajh17/vimcompletesme'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-scripts/sudo.vim'
+Plug 'lambdalisue/suda.vim'
 call plug#end()
 
 colorscheme rebecca-dark
@@ -18,7 +18,6 @@ set colorcolumn=80
 set nowrap
 set number
 set showmatch
-set tabstop=4
 set formatoptions+=o
 set splitbelow
 set splitright
@@ -29,6 +28,20 @@ let g:elm_format_autosave = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+set tabstop=4     " Size of a hard tabstop (ts).
+set shiftwidth=4  " Size of an indentation (sw).
+function! UseTabs()
+  set noexpandtab   " Always uses tabs instead of space characters (noet).
+  set autoindent    " Copy indent from current line when starting a new line (ai).
+endfunction
+function! UseSpaces()
+  set expandtab     " Always uses spaces instead of tab characters (et).
+  set softtabstop=0 " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
+  set autoindent    " Copy indent from current line when starting a new line.
+  set smarttab      " Inserts blanks on a <Tab> key (as per sw, ts and sts).
+  :%retab
+endfunction
 
 set guicursor=
 
