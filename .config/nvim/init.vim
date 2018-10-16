@@ -10,6 +10,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
 Plug 'lambdalisue/suda.vim'
 Plug 'floobits/floobits-neovim'
+Plug 'dag/vim-fish'
 call plug#end()
 
 colorscheme rebecca-dark
