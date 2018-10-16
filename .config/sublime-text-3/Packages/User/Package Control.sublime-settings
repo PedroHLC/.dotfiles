@@ -1,0 +1,48 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"1337 Color Scheme",
+		"A File Icon",
+		"Color Scheme - Sleeplessmind",
+		"Colorsublime",
+		"Crystal",
+		"Dracula Color Scheme",
+		"EditorConfig",
+		"Elixir",
+		"Elm Language Support",
+		"FileBinder",
+		"Floobits",
+		"Focus File on Sidebar",
+		"GitGutter",
+		"Gitignored File Excluder",
+		"Highlight Build Errors",
+		"HTMLBeautify",
+		"i3 wm",
+		"LaTeXTools",
+		"LDIF Syntax Highlighting",
+		"MasmAssembly",
+		"Missing Palette Commands",
+		"MouseEventListener",
+		"Origami",
+		"Package Control",
+		"PKGBUILD",
+		"RecentTabSort",
+		"RustFmt",
+		"Search in Project",
+		"Shell Turtlestein",
+		"SideBarEnhancements",
+		"SublimeLinter-contrib-elm-make",
+		"Terminal",
+		"TeXPreview",
+		"Theme - Brogrammer",
+		"Theme - Darkmatter",
+		"Theme - Nexus",
+		"Themes Menu Switcher",
+		"Tomorrow Color Schemes",
+		"Tomorrow Night Italics Color Scheme"
+	]
+}

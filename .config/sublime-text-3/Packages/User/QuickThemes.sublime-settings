@@ -1,0 +1,71 @@
+{
+	"quick_themes":
+	[
+		{
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Amy.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Blackboard.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Cobalt.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Dawn.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Eiffel.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Espresso Libre.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/IDLE.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/LAZY.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Mac Classic.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/MagicWB (Amiga).tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Pastels on Dark.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Slush & Poppies.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/SpaceCadet.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Sunburst.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Twilight.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Zenburnesque.tmTheme"
+		},
+		{
+			"color_scheme": "Packages/Color Scheme - Default/iPlastic.tmTheme"
+		}
+	],
+	"quick_themes_selection": 17
+}

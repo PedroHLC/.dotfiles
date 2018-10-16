@@ -1,0 +1,56 @@
+{
+	"binary_file_patterns":
+	[
+		"*.dds",
+		"*.eot",
+		"*.gif",
+		"*.ico",
+		"*.jar",
+		"*.jpeg",
+		"*.jpg",
+		"*.pdf",
+		"*.png",
+		"*.swf",
+		"*.tga",
+		"*.ttf",
+		"*.zip",
+		"_build/**"
+	],
+	"color_scheme": "Packages/Colorsublime - Themes/cache/Colorsublime-Themes-master/themes/Rebecca-dark.tmTheme",
+	"extra_file_exclude_patterns":
+	[
+		".DS_Store"
+	],
+	"extra_folder_exclude_patterns":
+	[
+		".git",
+		"deps"
+	],
+	"file_exclude_patterns":
+	[
+		".DS_Store",
+		"/home/pedrohlc/Projects/HackerExperience/HEBorn/static/css/index.css"
+	],
+	"folder_exclude_patterns":
+	[
+		".git",
+		"deps",
+		"/home/pedrohlc/Projects/HackerExperience/HEBorn/elm-stuff",
+		"/home/pedrohlc/Projects/HackerExperience/HEBorn/node_modules",
+		"/home/pedrohlc/Projects/HackerExperience/HEBorn/build",
+		"/home/pedrohlc/Projects/HackerExperience/HEBorn/tests/elm-stuff"
+	],
+	"font_face": "Fira Mono",
+	"font_size": 11,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"rulers":
+	[
+		44,
+		88
+	],
+	"search_in_project_engine": "the_silver_searcher",
+	"theme": "Darkmatter.sublime-theme"
+}
