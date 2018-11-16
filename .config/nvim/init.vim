@@ -13,6 +13,9 @@ Plug 'floobits/floobits-neovim'
 Plug 'dag/vim-fish'
 call plug#end()
 
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python'
+
 colorscheme rebecca-dark
 
 set clipboard+=unnamedplus
