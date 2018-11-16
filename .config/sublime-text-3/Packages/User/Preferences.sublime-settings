@@ -16,7 +16,7 @@
 		"*.zip",
 		"_build/**"
 	],
-	"color_scheme": "Packages/Colorsublime - Themes/cache/Colorsublime-Themes-master/themes/Rebecca-dark.tmTheme",
+	"color_scheme": "Packages/Colorsublime - Themes/Rebecca-dark.tmTheme",
 	"extra_file_exclude_patterns":
 	[
 		".DS_Store"
@@ -28,20 +28,15 @@
 	],
 	"file_exclude_patterns":
 	[
-		".DS_Store",
-		"/home/pedrohlc/Projects/HackerExperience/HEBorn/static/css/index.css"
+		".DS_Store"
 	],
 	"folder_exclude_patterns":
 	[
 		".git",
-		"deps",
-		"/home/pedrohlc/Projects/HackerExperience/HEBorn/elm-stuff",
-		"/home/pedrohlc/Projects/HackerExperience/HEBorn/node_modules",
-		"/home/pedrohlc/Projects/HackerExperience/HEBorn/build",
-		"/home/pedrohlc/Projects/HackerExperience/HEBorn/tests/elm-stuff"
+		"deps"
 	],
 	"font_face": "Fira Mono",
-	"font_size": 11,
+	"font_size": 9,
 	"ignored_packages":
 	[
 		"Vintage"
