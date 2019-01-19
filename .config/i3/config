@@ -5,7 +5,7 @@
 exec allow_rgb10_configs=false compton -b
 focus_follows_mouse no
 set $mod Mod4
-set $editor NVIM_GTK_NO_HEADERBAR=1 nvim-gtk
+set $editor NVIM_GTK_NO_HEADERBAR=1 subl
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -207,7 +207,7 @@ mode "$mode_favs" {
     bindsym b exec qbittorrent; mode "default"
     bindsym e exec $editor; mode "default"
     bindsym Shift+s exec ((pidof spotify) || spotify); mode "default"
-    bindsym Shift+t exec telegram-desktop; mode "default"
+    bindsym Shift+t exec kepka; mode "default"
     bindsym Ctrl+Escape exec $editor ~/.config/i3/config; mode "default"
     bindsym $mod+Tab mode "$mode_displays"
     bindsym $mod+Shift+Tab mode "$mode_network"
@@ -216,16 +216,18 @@ mode "$mode_favs" {
 bindsym $mod+Tab mode "$mode_favs"
 
 # Display favs
-set $monitor2 DVI-D-1
-set $monitor1 HDMI-A-0
-set $monitor1_mode '1920x1080'
-set $mode_displays [1] M1->M2 | [2] M2->M1 | [3] M1==M2 | [9] M1 | [0] M2  | [w]allpaper
+set $monitor1 eDP-1-1
+set $mode_displays [1] M1->M2 | [2] M2->M1 | [3] M1==M2 | [4] Above | [a/s] Switch M1 | [z/x] Switch M2 | [w]allpaper
 mode "$mode_displays" {
-    bindsym 1 exec xrandr --output $monitor1 --mode $monitor1_mode --left-of $monitor2
-    bindsym 2 exec xrandr --output $monitor1 --mode $monitor1_mode --right-of $monitor2
-    bindsym 3 exec xrandr --output $monitor1 --mode $monitor1_mode --same-as $monitor2
-    bindsym 9 exec xrandr --output $monitor2 --off --output $monitor1 --auto
-    bindsym 0 exec xrandr --output $monitor1 --off --output $monitor2 --auto
+	set $monitor2 DP-1-1
+    bindsym 1 exec xrandr --output $monitor1 --left-of $monitor2
+    bindsym 2 exec xrandr --output $monitor1 --right-of $monitor2
+    bindsym 3 exec xrandr --output $monitor1 --same-as $monitor2
+    bindsym 4 exec xrandr --output $monitor1 --below $monitor2
+    bindsym a exec xrandr --output $monitor1 --off
+    bindsym s exec xrandr --output $monitor1 --auto
+    bindsym z exec xrandr --output $monitor2 --off
+    bindsym x exec xrandr --output $monitor2 --auto
     bindsym w exec ~/.fehbg
     bindsym $mod+Tab mode "$mode_network"
     bindsym $mod+Shift+Tab mode "$mode_favs"
