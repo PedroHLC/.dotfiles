@@ -17,6 +17,7 @@
 		"_build/**"
 	],
 	"color_scheme": "Packages/Colorsublime - Themes/Rebecca-dark.tmTheme",
+	"dictionary": "Packages/LanguagePortuguese/Portuguese (Brazilian).dic",
 	"extra_file_exclude_patterns":
 	[
 		".DS_Store"
@@ -43,6 +44,7 @@
 	"font_size": 9,
 	"ignored_packages":
 	[
+		"RestructuredText",
 		"Vintage"
 	],
 	"rulers":
@@ -51,5 +53,6 @@
 		88
 	],
 	"search_in_project_engine": "the_silver_searcher",
+	"spell_check": false,
 	"theme": "Darkmatter.sublime-theme"
 }
