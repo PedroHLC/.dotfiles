@@ -1,9 +1,9 @@
 #!/bin/sh
-export TERMINAL=konsole
+export TERMINAL=wezterm
 
 setxkbmap -layout br &
 xmodmap ~/.Xmodmap &
-~/.fehbg &
+feh --bg-fill ~/.sara2.jpg &
 
 /usr/bin/i3
 

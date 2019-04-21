@@ -6,6 +6,7 @@ exec allow_rgb10_configs=false compton -b
 focus_follows_mouse no
 set $mod Mod4
 set $editor NVIM_GTK_NO_HEADERBAR=1 subl
+set $feh feh --bg-fill ~/.sara2.jpg
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -169,8 +170,7 @@ bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec intelbacklight -inc 10
 bindsym XF86MonBrightnessDown exec intelbacklight -dec 10
-bindsym XF86WLAN exec konsole -e nmtui; mode "default"
-bindsym $mod+t exec "yakuake"
+bindsym XF86WLAN exec $TERMINAL nmtui; mode "default"
 
 # No deco
 new_window pixel 1
@@ -198,7 +198,7 @@ mode "$mode_power" {
 bindsym $mod+Shift+e mode "$mode_power"
 
 # Favorite launcher
-set $mode_favs [f]irefox | [t]hunar | [v]olume | q[b]ittorrent | [r]ambox | [T]elegram | [e]ditor | [S]potify
+set $mode_favs [f]irefox | [t]hunar | [v]olume | q[b]ittorrent | [T]elegram | [e]ditor | [S]potify
 mode "$mode_favs" {
     bindsym f exec firefox-nightly; mode "default"
     bindsym d exec discord; mode "default"
@@ -207,19 +207,18 @@ mode "$mode_favs" {
     bindsym b exec qbittorrent; mode "default"
     bindsym e exec $editor; mode "default"
     bindsym Shift+s exec ((pidof spotify) || spotify); mode "default"
-    bindsym Shift+t exec kepka; mode "default"
+    bindsym Shift+t exec telegram-desktop; mode "default"
     bindsym Ctrl+Escape exec $editor ~/.config/i3/config; mode "default"
     bindsym $mod+Tab mode "$mode_displays"
-    bindsym $mod+Shift+Tab mode "$mode_network"
     bindsym Escape mode "default"
 }
 bindsym $mod+Tab mode "$mode_favs"
 
 # Display favs
 set $monitor1 eDP-1-1
+set $monitor2 DP-1-1
 set $mode_displays [1] M1->M2 | [2] M2->M1 | [3] M1==M2 | [4] Above | [a/s] Switch M1 | [z/x] Switch M2 | [w]allpaper
 mode "$mode_displays" {
-	set $monitor2 DP-1-1
     bindsym 1 exec xrandr --output $monitor1 --left-of $monitor2
     bindsym 2 exec xrandr --output $monitor1 --right-of $monitor2
     bindsym 3 exec xrandr --output $monitor1 --same-as $monitor2
@@ -228,23 +227,11 @@ mode "$mode_displays" {
     bindsym s exec xrandr --output $monitor1 --auto
     bindsym z exec xrandr --output $monitor2 --off
     bindsym x exec xrandr --output $monitor2 --auto
-    bindsym w exec ~/.fehbg
-    bindsym $mod+Tab mode "$mode_network"
-    bindsym $mod+Shift+Tab mode "$mode_favs"
-    bindsym Escape mode "default"
-}
-
-# Network favs
-set $mode_network (Re)[s]tart NM | [S]top NM | [E]nable | [D]isable | [n]mtui
-mode "$mode_network" {
-    bindsym s exec gksudo -- systemctl restart NetworkManager ; mode "default"
-    bindsym Shift+s exec gksudo -- systemctl stop NetworkManager ; mode "default"
-    bindsym Shift+e exec gksudo -- systemctl enable NetworkManager
-    bindsym Shift+d exec gksudo -- systemctl disable NetworkManager
-    bindsym n exec konsole -e nmtui; mode "default"
+    bindsym w exec $feh
     bindsym $mod+Tab mode "$mode_favs"
-    bindsym $mod+Shift+Tab mode "$mode_displays"
     bindsym Escape mode "default"
 }
-bindsym $mod+Shift+Tab mode "$mode_network"
+bindsym $mod+Shift+Tab mode "$mode_displays"
 
+# Turn on Tap-to-click
+exec xinput set-prop 'ETPS/2 Elantech Touchpad' 'libinput Tapping Enabled' 1

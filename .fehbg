@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-scale '/home/pedrohlc/.wallpaper.jpg' 
+feh --bg-fill '/home/pedrohlc/.sara2.jpg' 
