@@ -10,6 +10,7 @@
 		"*.jpg",
 		"*.pdf",
 		"*.png",
+		"*.pyc",
 		"*.swf",
 		"*.tga",
 		"*.ttf",
@@ -41,12 +42,15 @@
 	[
 		"subpixel_antialias"
 	],
-	"font_size": 9,
+	"font_size": 10,
 	"ignored_packages":
 	[
 		"RestructuredText",
-		"Vintage"
+		"Six",
+		"Vintage",
+		"Vintageous"
 	],
+	"neovintageous_build_version": 11100,
 	"rulers":
 	[
 		44,
@@ -54,5 +58,7 @@
 	],
 	"search_in_project_engine": "the_silver_searcher",
 	"spell_check": false,
-	"theme": "Darkmatter.sublime-theme"
+	"theme": "Darkmatter.sublime-theme",
+	"vintageous_use_ctrl_keys": null,
+	"vintageous_use_super_keys": null
 }

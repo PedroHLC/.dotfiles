@@ -29,10 +29,12 @@
 		"MasmAssembly",
 		"Missing Palette Commands",
 		"MouseEventListener",
+		"NeoVintageous",
 		"Origami",
 		"Package Control",
 		"PKGBUILD",
 		"Print to HTML",
+		"Prolog",
 		"RecentTabSort",
 		"RestructuredText Improved",
 		"RustFmt",
@@ -48,6 +50,7 @@
 		"Theme - Nexus",
 		"Themes Menu Switcher",
 		"Tomorrow Color Schemes",
-		"Tomorrow Night Italics Color Scheme"
+		"Tomorrow Night Italics Color Scheme",
+		"Trello"
 	]
 }

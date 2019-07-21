@@ -1,9 +1,0 @@
-#!/bin/sh
-export TERMINAL=wezterm
-
-setxkbmap -layout br &
-xmodmap ~/.Xmodmap &
-feh --bg-fill ~/.sara2.jpg &
-
-/usr/bin/i3
-

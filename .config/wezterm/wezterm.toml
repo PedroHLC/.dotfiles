@@ -1,0 +1,2 @@
+font = { fontconfig_pattern = "Fira Code" }
+default_prog = ["fish"]

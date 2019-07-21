@@ -1,0 +1,147 @@
+input "2:14:ETPS/2_Elantech_Touchpad" {
+	tap enabled
+	natural_scroll enabled
+}
+input "1:1:AT_Translated_Set_2_keyboard" {
+	xkb_layout br
+}
+
+focus_follows_mouse no
+set $mod Mod4
+set $editor subl
+
+font pango:monospace 8
+font pango:Fira Sans Mono 8
+floating_modifier $mod
+
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec rofi -show run
+bindsym $mod+Shift+d exec rofi -show drun
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+u split h
+bindsym $mod+i split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    
+	bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+bar {
+    font pango:DejaVu Sans Mono, FontAwesome 9
+	status_command i3status-rs ~/.config/i3/config.toml
+	colors {
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
+}
+
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
+bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute 0 toggle
+bindsym XF86MonBrightnessUp exec intelbacklight -inc 10
+bindsym XF86MonBrightnessDown exec intelbacklight -dec 10
+bindsym XF86WLAN exec $TERMINAL nmtui; mode "default"
+bindsym Print exec spectacle
+
+default_border pixel 1
+hide_edge_borders both
+for_window [app_id="firefox" title="moz-extension:.*"] floating enable
+for_window [app_id="firefox" title="Password Required"] floating enable
+
+set $lock swaylock -c 000000 -e -f
+set $scrsv xscreensaver-command -activate && sleep 1 && swaylock -c 00000000 && xscreensaver-command -deactivate
+#exec swayidle \
+#	timeout 30 '$scrsv' \
+#	before-sleep '$lock'
+
+set $mode_power [L]ogoff | [S]hutdown | [R]eboot | [l]ock | [s]uspend
+mode "$mode_power" {
+    bindsym Shift+l exec i3-msg exit
+    bindsym Shift+s exec systemctl poweroff
+    bindsym Shift+r exec systemctl reboot
+    bindsym s exec $lock && systemctl suspend ; mode default
+    bindsym l exec $scrsv ; mode default
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$mode_power"
+
+set $mode_favs [f]irefox | [F]ileMgr | [v]olume | q[b]ittorrent | [T]elegram | [e]ditor | [S]potify
+mode "$mode_favs" {
+    bindsym f exec firefox; mode "default"
+    bindsym d exec discord; mode "default"
+    bindsym Shift+f exec pcmanfm-qt; mode "default"
+    bindsym v exec pavucontrol; mode "default"
+    bindsym b exec qbittorrent; mode "default"
+    bindsym e exec $editor; mode "default"
+    bindsym Shift+s exec ((pidof spotify) || spotify); mode "default"
+    bindsym Shift+t exec telegram-desktop; mode "default"
+    bindsym Ctrl+Escape exec $editor ~/.config/i3/config; mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Tab mode "$mode_favs"
+
+exec mako
+exec xscreensaver -nosplash
+
+output '*' background /home/pedrohlc/.sara2.png fill
