@@ -14,7 +14,7 @@ font pango:monospace 8
 font pango:Fira Sans Mono 8
 floating_modifier $mod
 
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Shift+d exec rofi -show drun
@@ -65,6 +65,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
+bindsym $mod+Shift+t sticky toggle
 
 mode "resize" {
     bindsym h resize shrink width 10 px or 10 ppt
@@ -116,7 +117,7 @@ set $scrsv xscreensaver-command -activate && sleep 1 && swaylock -c 00000000 && 
 
 set $mode_power [L]ogoff | [S]hutdown | [R]eboot | [l]ock | [s]uspend
 mode "$mode_power" {
-    bindsym Shift+l exec i3-msg exit
+    bindsym Shift+l exec swaymsg exit
     bindsym Shift+s exec systemctl poweroff
     bindsym Shift+r exec systemctl reboot
     bindsym s exec $lock && systemctl suspend ; mode default
@@ -136,7 +137,7 @@ mode "$mode_favs" {
     bindsym e exec $editor; mode "default"
     bindsym Shift+s exec ((pidof spotify) || spotify); mode "default"
     bindsym Shift+t exec telegram-desktop; mode "default"
-    bindsym Ctrl+Escape exec $editor ~/.config/i3/config; mode "default"
+    bindsym Ctrl+Escape exec $editor ~/.config/sway/config; mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+Tab mode "$mode_favs"

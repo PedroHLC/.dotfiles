@@ -17,7 +17,7 @@
 		"*.zip",
 		"_build/**"
 	],
-	"color_scheme": "Packages/Colorsublime - Themes/cache/Colorsublime-Themes-master/themes/Rebecca-dark.tmTheme",
+	"color_scheme": "Packages/Colorsublime - Themes/cache/Colorsublime-Themes-master/themes/Rebecca.tmTheme",
 	"dictionary": "Packages/LanguagePortuguese/Portuguese (Brazilian).dic",
 	"extra_file_exclude_patterns":
 	[
@@ -58,7 +58,7 @@
 	],
 	"search_in_project_engine": "the_silver_searcher",
 	"spell_check": false,
-	"theme": "Darkmatter.sublime-theme",
+	"theme": "Adaptive.sublime-theme",
 	"vintageous_use_ctrl_keys": null,
 	"vintageous_use_super_keys": null
 }

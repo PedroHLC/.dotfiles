@@ -7,13 +7,14 @@
 	[
 		"1337 Color Scheme",
 		"A File Icon",
+		"ATS Syntax Highlight",
 		"Color Scheme - Sleeplessmind",
 		"Colorsublime",
 		"Crystal",
 		"Dracula Color Scheme",
 		"EditorConfig",
 		"Elixir",
-		"Elm Language Support",
+		"Elm Syntax Highlighting",
 		"FileBinder",
 		"Floobits",
 		"Focus File on Sidebar",
@@ -27,6 +28,7 @@
 		"LaTeXTools",
 		"LDIF Syntax Highlighting",
 		"MasmAssembly",
+		"MIPS Syntax",
 		"Missing Palette Commands",
 		"MouseEventListener",
 		"NeoVintageous",
@@ -35,6 +37,8 @@
 		"PKGBUILD",
 		"Print to HTML",
 		"Prolog",
+		"QML",
+		"R-Box",
 		"RecentTabSort",
 		"RestructuredText Improved",
 		"RustFmt",
@@ -42,7 +46,9 @@
 		"Shell Turtlestein",
 		"ShellScriptImproved",
 		"SideBarEnhancements",
+		"Smart VHDL",
 		"SublimeLinter-contrib-elm-make",
+		"SystemVerilog",
 		"Terminal",
 		"TeXPreview",
 		"Theme - Brogrammer",
@@ -51,6 +57,8 @@
 		"Themes Menu Switcher",
 		"Tomorrow Color Schemes",
 		"Tomorrow Night Italics Color Scheme",
-		"Trello"
+		"Trello",
+		"TypeScript",
+		"Verilog"
 	]
 }
