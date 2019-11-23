@@ -111,6 +111,11 @@ for_window [app_id="firefox" title="Password Required"] floating enable
 
 set $lock swaylock -c 000000 -e -f
 set $scrsv xscreensaver-command -activate && sleep 1 && swaylock -c 00000000 && xscreensaver-command -deactivate
+
+# start locked
+exec $lock -i /home/pedrohlc/.sara.jpg
+
+# lock after 30 min idle
 #exec swayidle \
 #	timeout 30 '$scrsv' \
 #	before-sleep '$lock'
