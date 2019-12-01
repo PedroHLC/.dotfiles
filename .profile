@@ -2,6 +2,7 @@
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export SUDO_EDITOR=$EDITOR
+export BROWSER=firefox
 
 #export MESA_LOADER_DRIVER_OVERRIDE=iris
 
