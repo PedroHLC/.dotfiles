@@ -2,9 +2,22 @@ theme = "solarized-dark"
 icons = "awesome"
 
 [[block]]
+block = "custom"
+command = "who | grep 'pts/' | wc -l | tr '\\n' '/'; who | wc -l"
+interval = 3
+
+[[block]]
+block = "toggle"
+text = "SSHd"
+command_state = "systemctl is-active sshd | grep '^a'"
+command_on = "sudo systemctl start sshd"
+command_off = "sudo systemctl stop sshd"
+interval = 5
+
+[[block]]
 block = "net"
 "device" = "wlp1s0"
-ip = true
+ip = false
 speed_up = true
 graph_up = false
 speed_down = true
@@ -29,12 +42,7 @@ format_swap = "{SUp}%"
 
 [[block]]
 block = "cpu"
-interval = 1
-
-[[block]]
-block = "load"
-interval = 1
-format = "{1m}"
+interval = 2
 
 [[block]]
 block = "sound"
@@ -47,5 +55,12 @@ device = "BAT1"
 
 [[block]]
 block = "time"
-interval = 60
-format = "%Y/%m/%d %a %R"
+interval = 10
+timezone = "Europe/Paris"
+format = "[FR] %R"
+
+[[block]]
+block = "time"
+interval = 10
+timezone = "America/Sao_Paulo"
+format = "[BR] %Y/%m/%d %a %R"
