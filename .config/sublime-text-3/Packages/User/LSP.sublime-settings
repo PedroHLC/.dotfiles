@@ -1,0 +1,21 @@
+// Settings in here override those in "LSP/LSP.sublime-settings",
+
+{
+  "auto_show_diagnostics_panel": false,
+  "clients": {
+    "reason": {
+      "enabled": true,
+      "command": ["/usr/bin/reason-language-server"],
+      "scopes": [
+        "source.reason",
+        "source.ocaml"
+      ],
+      "syntaxes": [
+        "Packages/Reason/Reason.tmLanguage",
+        "Packages/sublime-reason/Reason.tmLanguage",
+        "Packages/OCaml/OCaml.sublime-syntax"
+      ],
+      "languageId": "reason"
+    }
+  }
+}
