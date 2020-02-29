@@ -1,0 +1,101 @@
+/* ONE LINE TOOLBAR */
+#navigator-toolbox
+{ display: flex
+; flex-direction: row-reverse
+; justify-content: flex-end
+}
+
+#titlebar
+{ min-width: 40px !important
+; flex: 0
+; flex-basis: max-content
+}
+
+#nav-bar
+{ background-color: transparent !important
+; flex: 1
+; min-width: 498px !important
+}
+
+#PersonalToolbar
+{ flex: 0
+}
+
+/* REORDER BUTTONS */
+#nav-bar
+{ display: flex
+}
+
+#nav-bar-customization-target
+{ order: 2
+; flex: 1
+}
+
+/* REMOVE SEPARATOR FROM SANDWICH BUTTON */
+#PanelUI-button
+{ border: 0 !important
+; margin-left: 0 !important
+; padding-left: 0 !important
+}
+
+/* TABS SAME SIZE AS TOOLBAR */
+:root
+{ --tab-min-height: 40px !important
+}
+
+/* ONLY ICONS ON TABS */
+.tab-label-container
+{ display:none
+}
+
+.tabbrowser-tab[fadein]:not([pinned])
+{ max-width: 0 !important
+; min-width: auto !important
+}
+
+/* HIDE NAV BUTTONS */
+#back-button, #forward-button
+{ display: none
+}
+
+/* TOOLBAR BELOW PAGE */
+#main-window:not([sizemode="fullscreen"]) body > box:nth-child(8)
+{ position: fixed
+; bottom: 0
+; display: block
+; z-index: 1
+; background: gray
+; width: 100%
+; background-image: var(--lwt-header-image) !important
+; background-repeat: no-repeat
+; background-position: right top !important
+}
+
+#main-window:not([sizemode="fullscreen"]) #browser
+{ padding-bottom: 40px
+}
+
+/* TOOLBAR BALLOONS HAVE TO BECOME VISIBLE AGAIN */
+panel[position^="bottomcenter"]
+{ top: 0px
+}
+
+.urlbarView
+{ top: auto !important
+; bottom: 40px !important
+}
+
+#urlbar[breakout-extend]
+{ top: auto !important
+; bottom: 0px !important
+}
+
+#urlbar[breakout-extend] .urlbarView-results
+{ display: flex
+; flex-direction: column-reverse
+}
+
+/* I'M WITH "SWAYWM", I DON'T NEED THESE */
+#minimize-button, #restore-button
+{ display: none
+}
