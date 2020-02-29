@@ -11,6 +11,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'lambdalisue/suda.vim'
 Plug 'floobits/floobits-neovim'
 Plug 'dag/vim-fish'
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 call plug#end()
 
 let g:python_host_prog = '/usr/bin/python2'
@@ -30,6 +32,8 @@ set autochdir
 
 let g:elm_setup_keybindings = 0
 let g:elm_format_autosave = 1
+
+let g:LanguageClient_serverCommands = { 'reason': ['/usr/bin/reason-language-server'] }
 
 let g:airline#extensions#tabline#enabled = 1
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
