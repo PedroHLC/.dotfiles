@@ -121,7 +121,7 @@ for_window [app_id="firefox" title="moz-extension:.*"] floating enable
 for_window [app_id="firefox" title="Password Required"] floating enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable; sticky enable
 for_window [app_id="firefox" title="Firefox - Sharing Indicator"] floating enable; sticky enable
-for_window [title="WScreenSaver"] fullscreen enable; sticky enable
+for_window [title="WScreenSaver"] fullscreen enable global; sticky enable
 
 set $mode_power [L]ogoff | [S]hutdown | [R]eboot | [l]ock | [s]uspend
 mode "$mode_power" {
