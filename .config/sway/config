@@ -6,6 +6,10 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 	xkb_layout br
 }
 
+output "eDP-1" pos 0 768
+output "DP-1" pos 0 0
+output "HDMI-A-1" pos 1366 288
+
 #set $lock swaylock -c 000000 -e -f -i /home/pedrohlc/.lock.png
 set $lock /home/pedrohlc/.local/bin/my-wscreensaver
 
