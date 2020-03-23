@@ -68,10 +68,6 @@
 		"spacing": 4
 	},
 
-	"sway/mode": {
-		"rotate": 1
-	},
-
 	"custom/sessions": {
 		"interval": 3,
 		"exec": "echo -n ' '; who | grep 'pts/' | wc -l | tr '\\n' '/'; who | wc -l"	
