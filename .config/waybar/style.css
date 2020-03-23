@@ -18,8 +18,8 @@ window#waybar
   ; padding: 0 2px;
   }
 #workspaces button.focused
-  { border: 2px solid white;
-  ; color: white;
+  { border: 1px solid rgba(255, 255, 255, 0.25);
+  ; border-radius: 0;
   }
 
 #battery:not(.charging)
