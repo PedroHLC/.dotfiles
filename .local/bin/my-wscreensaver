@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+cd "${0%/*}"
+alacritty -t 'WScreenSaver' -e ./asgard-screensaver.py &
+swaylock -c 00000000
+kill %%
+kill %%
