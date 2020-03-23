@@ -15,9 +15,10 @@
 	},
 
 	"network": {
-		"format": " {bandwidthUpBits}  {bandwidthDownBits}",
+		"format": "",
 		"format-wifi": " {essid} ({signalStrength}%)",
-		"format-disconnected": "[OFF-LINE]"
+		"format-disconnected": "[OFF-LINE]",
+		"tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}"
 	},
 
 	"disk": {
