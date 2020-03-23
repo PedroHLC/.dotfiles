@@ -21,7 +21,8 @@ exec $lock
 #	timeout 30 '$scrsv' \
 #	before-sleep '$lock'
 
-focus_follows_mouse no
+focus_follows_mouse yes
+mouse_warping container
 set $mod Mod4
 set $editor subl
 
