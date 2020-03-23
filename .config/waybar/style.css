@@ -1,0 +1,35 @@
+*
+  { font-family: FontAwesome, Fira Code, sans-serif
+  ; font-size: 12px
+  }
+
+label { padding: 0px 4px }
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #eeeeee;
+    border-top: 1px solid black;
+}
+
+#workspaces button {
+  padding: 0 4px;
+}
+
+#battery:not(.charging) {
+  background: green;
+}
+#battery.good:not(.charging) {
+  background: #26A65B;
+}
+#battery.medium:not(.charging) {
+  background: yellow;
+}
+#battery.warning:not(.charging) {
+  background: orange;
+}
+#battery.charging {
+  background: #26A65B;
+}
+#pulseaudio.muted {
+  background: red;
+}

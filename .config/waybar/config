@@ -1,0 +1,72 @@
+{
+	"layer": "top",
+	"position": "bottom",
+	"height": 21,
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-center": [],
+	"modules-right": ["tray", "custom/sessions", "custom/sshd", "network", "disk", "memory", "cpu", "pulseaudio", "battery", "clock", "clock#br", "clock#fr"],
+
+	"network": {
+		"format": " {bandwidthUpBits}  {bandwidthDownBits}",
+		"format-wifi": " {essid} ({signalStrength}%)",
+		"format-disconnected": "[OFF-LINE]"
+	},
+
+	"disk": {
+		"path": "/",
+		"format": " {free}"
+	},
+
+	"memory": {
+		"format": " {used:0.1f}G"
+	},
+
+	"cpu": {
+		"interval": 2,
+		"format": " {usage}%"
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": " ",
+		"format-icons": {
+			"default": ["", ""]
+		},
+		"scroll-step": 5,
+		"on-click": "pactl set-sink-mute 0 toggle"
+	},
+
+	"battery": {
+		"format": "{icon} {capacity}%",
+		"format-icons": ["", "", "", "", ""]	
+	},
+
+	"clock": {
+		"format": "{: %d/%m}"
+	},
+
+	"clock#br": {
+		"timezone": "America/Sao_Paulo",
+		"format": "{: BR[%H:%M]}"
+	},
+
+	"clock#fr": {
+		"timezone": "Europe/Paris",
+		"format": "{: FR[%H:%M]}"
+	},
+
+	"tray": {
+		"spacing": 4
+	},
+
+	"custom/sessions": {
+		"interval": 3,
+		"exec": "echo -n ' '; who | grep 'pts/' | wc -l | tr '\\n' '/'; who | wc -l"	
+	},
+
+	"custom/sshd": {
+		"interval": 3,
+		"exec": "echo -n 'SSHd '; systemctl is-active -q sshd && echo '' || echo ''",
+		"on-click": "systemctl is-active -q sshd && sudo systemctl stop sshd || sudo systemctl start sshd"
+	}
+}
