@@ -1,10 +1,18 @@
-{
+[{
 	"layer": "top",
 	"position": "bottom",
 	"height": 21,
 	"modules-left": ["sway/workspaces", "sway/mode"],
 	"modules-center": [],
-	"modules-right": ["tray", "custom/sessions", "custom/sshd", "network", "disk", "memory", "cpu", "pulseaudio", "battery", "clock", "clock#br", "clock#fr"],
+	"modules-right": ["tray", "custom/radio", "custom/bluetooth", "custom/sshd", "custom/sessions", "backlight", "pulseaudio", "network", "disk", "memory", "cpu", "battery", "clock", "clock#br", "clock#fr"],
+
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "{icon} {percent}%",
+		"format-icons": [""],
+		"on-scroll-down": "intelbacklight -dec 5",
+		"on-scroll-up": "intelbacklight -inc 5"
+	},
 
 	"network": {
 		"format": " {bandwidthUpBits}  {bandwidthDownBits}",
@@ -38,6 +46,7 @@
 
 	"battery": {
 		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
 		"format-icons": ["", "", "", "", ""]	
 	},
 
@@ -59,6 +68,10 @@
 		"spacing": 4
 	},
 
+	"sway/mode": {
+		"rotate": 1
+	},
+
 	"custom/sessions": {
 		"interval": 3,
 		"exec": "echo -n ' '; who | grep 'pts/' | wc -l | tr '\\n' '/'; who | wc -l"	
@@ -66,7 +79,19 @@
 
 	"custom/sshd": {
 		"interval": 3,
-		"exec": "echo -n 'SSHd '; systemctl is-active -q sshd && echo '' || echo ''",
+		"exec": "echo -n ' '; systemctl is-active -q sshd && echo '' || echo ''",
 		"on-click": "systemctl is-active -q sshd && sudo systemctl stop sshd || sudo systemctl start sshd"
+	},
+
+	"custom/bluetooth": {
+		"interval": 3,
+		"exec": "echo -n ' '; systemctl is-active -q bluetooth && echo '' || echo ''",
+		"on-click": "systemctl is-active -q bluetooth && (bluetoothctl --timeout 4 power off && sudo systemctl stop bluetooth && sudo rfkill block bluetooth) || (sudo rfkill unblock bluetooth && sudo systemctl start bluetooth && bluetoothctl --timeout 4 power on)"
+	},
+
+	"custom/radio": {
+		"interval": 3,
+		"exec": "echo -n ' '; [ $(nmcli r wifi) = 'disabled' ] && echo '' || echo ''",
+		"on-click": "[ $(nmcli r wifi) = 'enabled' ] && nmcli r wifi off || nmcli r wifi on"
 	}
-}
+}]

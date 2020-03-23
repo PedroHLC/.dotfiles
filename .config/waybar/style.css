@@ -15,10 +15,11 @@ window#waybar
 
 #workspaces button
   { background-color: rgba(5, 5, 220, 0.15)
-  ; padding: 0 2px;
+  ; padding: 0 2px
+  ; min-height: 0
   }
 #workspaces button.focused
-  { border: 1px solid rgba(255, 255, 255, 0.25);
+  { border: 1px solid rgba(255, 255, 255, 0.25)
   ; border-radius: 0;
   }
 
@@ -35,7 +36,7 @@ window#waybar
   { background-color: orange
   }
 #battery.charging
-  { background-color: #26A65B
+  { background-color: #028AE5
   }
 #pulseaudio.muted
   { background-color: red
