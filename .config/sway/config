@@ -100,7 +100,7 @@ bindsym $mod+r mode "resize"
 
 bar {
     font pango:DejaVu Sans Mono, FontAwesome 9
-	status_command i3status-rs ~/.config/i3/config.toml
+	swaybar_command waybar
 	colors {
         separator #666666
         background #222222

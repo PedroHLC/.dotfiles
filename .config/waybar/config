@@ -47,12 +47,12 @@
 
 	"clock#br": {
 		"timezone": "America/Sao_Paulo",
-		"format": "{: BR[%H:%M]}"
+		"format": "{:BR[%H:%M]}"
 	},
 
 	"clock#fr": {
 		"timezone": "Europe/Paris",
-		"format": "{: FR[%H:%M]}"
+		"format": "{:FR[%H:%M]}"
 	},
 
 	"tray": {
