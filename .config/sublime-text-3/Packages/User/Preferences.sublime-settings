@@ -17,7 +17,7 @@
 		"*.zip",
 		"_build/**"
 	],
-	"color_scheme": "Packages/Colorsublime - Themes/cache/Colorsublime-Themes-master/themes/Rebecca-dark.tmTheme",
+	"color_scheme": "Packages/Colorsublime - Themes/Rebecca-dark.tmTheme",
 	"dictionary": "Packages/LanguagePortuguese/Portuguese (Brazilian).dic",
 	"extra_file_exclude_patterns":
 	[
@@ -45,10 +45,6 @@
 	"font_size": 9,
 	"ignored_packages":
 	[
-		"RestructuredText",
-		"Six",
-		"Vintage",
-		"Vintageous"
 	],
 	"lsp_format_on_save": true,
 	"neovintageous_build_version": 11100,
