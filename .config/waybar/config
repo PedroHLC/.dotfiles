@@ -16,9 +16,9 @@
 
 	"network": {
 		"format": "",
-		"format-wifi": " {essid} ({signalStrength}%)",
-		"format-disconnected": "[OFF-LINE]",
-		"tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}"
+		"format-disconnected": "",
+		"tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}",
+		"tooltip-format-wifi": " {essid} ({signalStrength}%)  {bandwidthUpBits}  {bandwidthDownBits}"
 	},
 
 	"disk": {
@@ -71,24 +71,24 @@
 
 	"custom/sessions": {
 		"interval": 3,
-		"exec": "echo -n ' '; who | grep 'pts/' | wc -l | tr '\\n' '/'; who | wc -l"	
+		"exec": "echo -n ' '; who | grep 'pts/' | wc -l | tr '\\n' '/'; who | wc -l; echo 'PTS/Sessions'"
 	},
 
 	"custom/sshd": {
 		"interval": 3,
-		"exec": "echo -n ' '; systemctl is-active -q sshd && echo '' || echo ''",
+		"exec": "echo -n ' '; systemctl is-active -q sshd && echo '' || echo ''; echo 'SSHd'",
 		"on-click": "systemctl is-active -q sshd && sudo systemctl stop sshd || sudo systemctl start sshd"
 	},
 
 	"custom/bluetooth": {
 		"interval": 3,
-		"exec": "echo -n ' '; systemctl is-active -q bluetooth && echo '' || echo ''",
+		"exec": "echo -n ' '; systemctl is-active -q bluetooth && echo '' || echo ''; echo 'Bluetooth'",
 		"on-click": "systemctl is-active -q bluetooth && (bluetoothctl --timeout 4 power off && sudo systemctl stop bluetooth && sudo rfkill block bluetooth) || (sudo rfkill unblock bluetooth && sudo systemctl start bluetooth && bluetoothctl --timeout 4 power on)"
 	},
 
 	"custom/radio": {
 		"interval": 3,
-		"exec": "echo -n ' '; [ $(nmcli r wifi) = 'disabled' ] && echo '' || echo ''",
+		"exec": "echo -n ' '; [ $(nmcli r wifi) = 'disabled' ] && echo '' || echo ''; echo 'WiFi'",
 		"on-click": "[ $(nmcli r wifi) = 'enabled' ] && nmcli r wifi off || nmcli r wifi on"
 	}
 }]
