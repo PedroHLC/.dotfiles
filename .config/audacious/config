@@ -1,2 +1,7 @@
+
+[resample]
+default-rate=96000
+method=0
+
 [skins]
 skin=/home/pedrohlc/.local/share/audacious/Skins/135799-winamp_classic

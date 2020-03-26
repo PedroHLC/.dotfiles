@@ -45,6 +45,10 @@
 	"font_size": 9,
 	"ignored_packages":
 	[
+		"RestructuredText",
+		"Six",
+		"Vintage",
+		"Vintageous"
 	],
 	"lsp_format_on_save": true,
 	"neovintageous_build_version": 11100,

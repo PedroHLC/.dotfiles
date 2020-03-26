@@ -9,8 +9,8 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 output "eDP-1" pos 0 768
 output "DP-1" pos 0 0
 output "HDMI-A-1" pos 1366 288
+output * dpms on
 
-#set $lock swaylock -c 000000 -e -f -i /home/pedrohlc/.lock.png
 set $lock /home/pedrohlc/.local/bin/my-wscreensaver
 
 # start locked
@@ -119,6 +119,10 @@ bindsym XF86MonBrightnessUp exec intelbacklight -inc 10
 bindsym XF86MonBrightnessDown exec intelbacklight -dec 10
 bindsym XF86WLAN exec $TERMINAL nmtui; mode "default"
 bindsym Print exec grim -t png /tmp/screenshot.png
+bindsym $mod+Print exec grim -t png -o eDP-1 /tmp/screenshot.png
+bindsym Ctrl+Print exec grim -t png -o HDMI-A-1 /tmp/screenshot.png
+bindsym Shift+Print exec grim -t png -o DP-1 /tmp/screenshot.png
+bindsym Alt+Print exec grim -t png -g "$(slurp)" /tmp/screenshot.png
 
 default_border pixel 1
 hide_edge_borders both
