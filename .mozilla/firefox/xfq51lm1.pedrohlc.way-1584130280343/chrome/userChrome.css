@@ -14,11 +14,16 @@
 #nav-bar
 { background-color: transparent !important
 ; flex: 1
-; min-width: 498px !important
+; min-width: 500px !important
+; max-width: 640px !important
 }
 
 #PersonalToolbar
 { flex: 0
+}
+
+scrollbox[part="scrollbox"]
+{ width: 100vw
 }
 
 /* REORDER BUTTONS */
@@ -66,6 +71,7 @@
 ; z-index: 1
 ; background: gray
 ; width: 100%
+; background-color: black;
 ; background-image: var(--lwt-header-image) !important
 ; background-repeat: no-repeat
 ; background-position: right top !important
@@ -93,6 +99,16 @@ panel[position^="bottomcenter"]
 #urlbar[breakout-extend] .urlbarView-results
 { display: flex
 ; flex-direction: column-reverse
+}
+
+#urlbar-input[aria-expanded="true"]
+{ bottom: 12px
+; position: fixed;
+}
+
+box.panel-viewstack
+{ min-height: min-content
+; max-height: none !important
 }
 
 /* I'M WITH "SWAYWM", I DON'T NEED THESE */
