@@ -118,11 +118,11 @@ bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec intelbacklight -inc 10
 bindsym XF86MonBrightnessDown exec intelbacklight -dec 10
 bindsym XF86WLAN exec $TERMINAL nmtui; mode "default"
-bindsym Print exec grim -t png /tmp/screenshot.png
-bindsym $mod+Print exec grim -t png -o eDP-1 /tmp/screenshot.png
-bindsym Ctrl+Print exec grim -t png -o HDMI-A-1 /tmp/screenshot.png
-bindsym Shift+Print exec grim -t png -o DP-1 /tmp/screenshot.png
-bindsym Alt+Print exec grim -t png -g "$(slurp)" /tmp/screenshot.png
+bindsym Print exec grim -t png - | tee /tmp/screenshot.png | wl-copy
+bindsym $mod+Print exec grim -t png -g "$(slurp)" - | tee /tmp/screenshot.png | wl-copy
+bindsym Shift+Print exec grim -t png -o DP-1 - | tee /tmp/screenshot.png | wl-copy
+bindsym Ctrl+Print exec grim -t png -o eDP-1 - | tee /tmp/screenshot.png | wl-copy
+bindsym Alt+Print exec grim -t png -o HDMI-A-1 - | tee /tmp/screenshot.png | wl-copy
 
 default_border pixel 1
 hide_edge_borders both
@@ -160,7 +160,7 @@ mode "$mode_favs" {
 bindsym $mod+Tab mode "$mode_favs"
 
 exec mako
-exec xdg-desktop-portal-wlr
+exec xdg-desktop-portal-wlr -p BGRx
 
 output '*' background /home/pedrohlc/.wallpaper.jpg fill
 
