@@ -1,4 +1,0 @@
-default_prog = ["fish"]
-
-[[font.font]]
-family = "Fira Code"
