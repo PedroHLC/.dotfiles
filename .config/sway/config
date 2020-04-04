@@ -1,3 +1,4 @@
+# Laptop keyboard
 input "2:14:ETPS/2_Elantech_Touchpad" {
 	tap enabled
 	natural_scroll enabled
@@ -6,14 +7,13 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 	xkb_layout br
 }
 
+# Default displays
 output "eDP-1" pos 0 768
 output "DP-1" pos 0 0
 output "HDMI-A-1" pos 1366 288
-output * dpms on
-
-set $lock /home/pedrohlc/.local/bin/my-wscreensaver
 
 # start locked
+set $lock /home/pedrohlc/.local/bin/my-wscreensaver
 exec $lock
 
 # lock after 30 min idle
@@ -21,15 +21,20 @@ exec $lock
 #	timeout 30 '$scrsv' \
 #	before-sleep '$lock'
 
+# Mouse follows and follows mouse
 focus_follows_mouse yes
 mouse_warping container
+
+# Minimum Settings
 set $mod Mod4
 set $editor subl
 
+# Display keys
 font pango:monospace 8
 font pango:Fira Sans Mono 8
 floating_modifier $mod
 
+# Pretty much i3 keybinds with small adjusted
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec wofi --gtk-dark --show run
@@ -98,25 +103,19 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Lower bar
 bar {
-    font pango:DejaVu Sans Mono, FontAwesome 9
 	swaybar_command waybar
-	colors {
-        separator #666666
-        background #222222
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
-    }
 }
 
+# Laptop keybings
 bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -5%
 bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec intelbacklight -inc 10
+bindsym $mod+XF86MonBrightnessUp output * dpms on
 bindsym XF86MonBrightnessDown exec intelbacklight -dec 10
+bindsym $mod+XF86MonBrightnessDown output * dpms off
 bindsym XF86WLAN exec $TERMINAL nmtui; mode "default"
 bindsym Print exec grim -t png - | tee /tmp/screenshot.png | wl-copy
 bindsym $mod+Print exec grim -t png -g "$(slurp)" - | tee /tmp/screenshot.png | wl-copy
@@ -124,14 +123,18 @@ bindsym Shift+Print exec grim -t png -o DP-1 - | tee /tmp/screenshot.png | wl-co
 bindsym Ctrl+Print exec grim -t png -o eDP-1 - | tee /tmp/screenshot.png | wl-copy
 bindsym Alt+Print exec grim -t png -o HDMI-A-1 - | tee /tmp/screenshot.png | wl-copy
 
+# window settings
 default_border pixel 1
 hide_edge_borders both
+
+# Per app window settings
 for_window [app_id="firefox" title="moz-extension:.*"] floating enable
 for_window [app_id="firefox" title="Password Required"] floating enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable; sticky enable
 for_window [app_id="firefox" title="Firefox - Sharing Indicator"] floating enable; sticky enable
 for_window [title="WScreenSaver"] fullscreen enable global; sticky enable
 
+# Proper options for poweroff
 set $mode_power [L]ogoff | [S]hutdown | [R]eboot | [l]ock | [s]uspend
 mode "$mode_power" {
     bindsym Shift+l exec swaymsg exit
@@ -144,6 +147,7 @@ mode "$mode_power" {
 }
 bindsym $mod+Shift+e mode "$mode_power"
 
+# A fast launcher
 set $mode_favs [f]irefox | [F]ileMgr | [v]olume | q[b]ittorrent | [T]elegram | [e]ditor | [S]potify
 mode "$mode_favs" {
     bindsym f exec firefox; mode "default"
@@ -159,13 +163,17 @@ mode "$mode_favs" {
 }
 bindsym $mod+Tab mode "$mode_favs"
 
+# Notifications daemon
 exec mako
+
+# Screen sharing
 exec xdg-desktop-portal-wlr -p BGRx
 
+# Wallpaper
 output '*' background /home/pedrohlc/.wallpaper.jpg fill
 
+# GNOME THeme
 set $gnome-schema org.gnome.desktop.interface
-
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Breeze-Dark'
     gsettings set $gnome-schema icon-theme 'Vimix-Doder-dark'

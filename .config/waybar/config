@@ -4,7 +4,7 @@
 	"height": 21,
 	"modules-left": ["sway/workspaces", "sway/mode"],
 	"modules-center": [],
-	"modules-right": ["tray", "custom/radio", "custom/bluetooth", "custom/sshd", "custom/sessions", "backlight", "pulseaudio", "network", "disk", "memory", "cpu", "battery", "clock", "clock#br", "clock#fr"],
+	"modules-right": ["tray", "custom/radio", "custom/bluetooth", "custom/sshd", "custom/sessions", "backlight", "pulseaudio", "network", "disk", "memory", "cpu", "battery", "clock", "clock#br"],
 
 	"backlight": {
 		"device": "intel_backlight",
