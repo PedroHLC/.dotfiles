@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
+# User's settings
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export SUDO_EDITOR=$EDITOR
 export BROWSER=firefox
 
-#export MESA_LOADER_DRIVER_OVERRIDE=iris
-
+# Auto startup
 if [ -z "$TMUX" ] &&  [ "$SSH_CLIENT" != "" ]
 then
 	exec tmux
