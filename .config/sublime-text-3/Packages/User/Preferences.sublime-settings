@@ -54,8 +54,8 @@
 	"neovintageous_build_version": 11100,
 	"rulers":
 	[
-		44,
-		88
+		40,
+		80
 	],
 	"search_in_project_engine": "the_silver_searcher",
 	"spell_check": false,

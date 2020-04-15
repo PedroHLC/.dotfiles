@@ -164,13 +164,16 @@ mode "$mode_favs" {
 bindsym $mod+Tab mode "$mode_favs"
 
 # Notifications daemon
-exec mako
+exec mako --output eDP-1
 
 # Screen sharing
 exec xdg-desktop-portal-wlr -p BGRx
 
 # Wallpaper
 output '*' background /home/pedrohlc/.wallpaper.jpg fill
+output 'HDMI-A-1' background /home/pedrohlc/.wallpaper.HDMI-A-1.jpg fill
+output 'DP-1' background /home/pedrohlc/.wallpaper.DP-1.jpg fill
+output 'eDP-1' background /home/pedrohlc/.wallpaper.eDP-1.jpg fill
 
 # GNOME THeme
 set $gnome-schema org.gnome.desktop.interface
@@ -179,3 +182,6 @@ exec_always {
     gsettings set $gnome-schema icon-theme 'Vimix-Doder-dark'
     gsettings set $gnome-schema cursor-theme 'Breeze_Snow'
 }
+
+# Some transparencies
+for_window [class="Spotify"] opacity 0.9

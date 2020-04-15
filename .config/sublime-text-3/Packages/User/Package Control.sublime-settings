@@ -8,6 +8,7 @@
 		"1337 Color Scheme",
 		"A File Icon",
 		"ATS Syntax Highlight",
+		"Clang Format",
 		"Color Scheme - Sleeplessmind",
 		"Colorsublime",
 		"Dracula Color Scheme",
@@ -59,6 +60,7 @@
 		"Tomorrow Color Schemes",
 		"Tomorrow Night Italics Color Scheme",
 		"Trello",
-		"Verilog"
+		"Verilog",
+		"Zig Language"
 	]
 }
