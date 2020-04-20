@@ -1,9 +1,12 @@
 [user]
 	email = root@pedrohlc.com
 	name = PedroHLC
+	signingkey = DF4C6898CBDC6DF5
 [core]
 	editor = nvim
 [rerere]
 	enabled = true
 [pull]
 	rebase = true
+[commit]
+	gpgsign = true
