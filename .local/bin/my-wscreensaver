@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 cd "${0%/*}"
-alacritty -t 'WScreenSaver' -e ./asgard-screensaver.py &
+#alacritty -t 'WScreenSaver' -e ./asgard-screensaver.py &
+# Fujiwara-Astrophycs came from `youtube-dl 'https://www.youtube.com/watch?v=_I6I2JOJhHY' -f bestvideo`
+mpv --title='WScreenSaver' --ao=none --loop ~/Videos/Fujiwara-Astrophysics.mp4 &
 swaylock -c 00000000
 kill %%
 kill %%
