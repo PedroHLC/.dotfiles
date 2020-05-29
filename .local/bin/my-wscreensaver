@@ -8,7 +8,7 @@ _PIDS=()
 function wallpaper() {
     echo $2
     mpv --title="$1-WScreenSaver" --ao=none \
-        --shuffle --loop-file=10 --loop-playlist=inf \
+        --shuffle --loop-file=inf \
          $_MEDIA &
     _PIDS+=($!)
 }
