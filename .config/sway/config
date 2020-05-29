@@ -132,7 +132,11 @@ for_window [app_id="firefox" title="moz-extension:.*"] floating enable
 for_window [app_id="firefox" title="Password Required"] floating enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable; sticky enable
 for_window [app_id="firefox" title="Firefox - Sharing Indicator"] floating enable; sticky enable
-for_window [title="WScreenSaver"] fullscreen enable global; sticky enable
+
+for_window [title="Global-WScreenSaver"] fullscreen enable global; sticky enable
+for_window [title="eDP-WScreenSaver"] move container to output "eDP-1"; fullscreen enable; sticky enable
+for_window [title="HDMI-WScreenSaver"] move container to output "HDMI-A-1"; fullscreen enable; sticky enable
+for_window [title="VGA-WScreenSaver"] move container to output "DP-1"; fullscreen enable; sticky enable
 
 # Proper options for poweroff
 set $mode_power [L]ogoff | [S]hutdown | [R]eboot | [l]ock | [s]uspend

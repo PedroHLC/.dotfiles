@@ -1,8 +1,21 @@
 #!/usr/bin/env bash
-cd "${0%/*}"
-#alacritty -t 'WScreenSaver' -e ./asgard-screensaver.py &
-# Fujiwara-Astrophycs came from `youtube-dl 'https://www.youtube.com/watch?v=_I6I2JOJhHY' -f bestvideo`
-mpv --title='WScreenSaver' --ao=none --loop ~/Videos/Fujiwara-Astrophysics.mp4 &
+cd ~/Videos
+_HAS_MUSIC=$(pidof spotify)
+(pidof spotify) && _MEDIA='Fujiwara-Astrophysics.mp4' \
+    || _MEDIA='--playlist=my-wscreensaver.playlist.txt'
+
+_PIDS=()
+function wallpaper() {
+    echo $2
+    mpv --title="$1-WScreenSaver" --ao=none \
+        --shuffle --loop-file=10 --loop-playlist=inf \
+         $_MEDIA &
+    _PIDS+=($!)
+}
+
+wallpaper eDP "$_GENERIC_GIFS"
+wallpaper HDMI "$_GENERIC_GIFS"
+wallpaper VGA "$_GENERIC_GIFS"
+
 swaylock -c 00000000
-kill %%
-kill %%
+kill ${_PIDS[@]}
