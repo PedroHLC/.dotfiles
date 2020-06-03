@@ -151,19 +151,26 @@ mode "$mode_power" {
 }
 bindsym $mod+Shift+e mode "$mode_power"
 
+# LIMIT APPS MEMORY!!!!!
+set $usefull_sideapp systemd-run --user --scope -p 
+set $usefull_chrome $usefull_sideapp MemoryLimit=500M nowl google-chrome-stable
+set $usefull_firefox $usefull_sideapp MemoryLimit=3G firefox
+set $usefull_spotify $usefull_sideapp MemoryLimit=250M spotify
+set $usefull_telegram $usefull_sideapp MemoryLimit=250M telegram-desktop
+set $usefull_editor $usefull_sideapp MemoryLimit=500M $editor
+
 # A fast launcher
 set $mode_favs [f]irefox | [F]ileMgr | [v]olume | q[b]ittorrent | [T]elegram | [e]ditor | [S]potify
 mode "$mode_favs" {
-    bindsym f exec firefox; mode "default"
-    bindsym d exec discord; mode "default"
+    bindsym f exec $usefull_firefox; mode "default"
     bindsym Shift+f exec pcmanfm-qt; mode "default"
     bindsym v exec pavucontrol; mode "default"
     bindsym b exec env QT_AUTO_SCREEN_SCALE_FACTOR=0 qbittorrent; mode "default"
     bindsym e exec $editor; mode "default"
     bindsym shift+o exec nowl obs; mode "default"
-    bindsym shift+c exec nowl google-chrome-stable; mode "default"
-    bindsym Shift+s exec ((pidof spotify) || spotify); mode "default"
-    bindsym Shift+t exec telegram-desktop; mode "default"
+    bindsym shift+c exec $usefull_chrome; mode "default"
+    bindsym Shift+s exec ((pidof spotify) || $usefull_spotify); mode "default"
+    bindsym Shift+t exec $usefull_telegram; mode "default"
     bindsym Ctrl+Escape exec $editor ~/.config/sway/config; mode "default"
     bindsym Escape mode "default"
 }

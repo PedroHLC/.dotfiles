@@ -37,11 +37,9 @@
 	[
 		".git",
 		"deps",
-		"/home/pedrohlc/Projects/Paack/wms-web/ui/.cache",
-		"/home/pedrohlc/Projects/Paack/wms-web/ui/node_modules",
-		"/home/pedrohlc/Projects/Paack/wms-web/ui/docs/elm-stuff",
-		"/home/pedrohlc/Projects/Paack/wms-web/ui/elm-stuff",
-		"/home/pedrohlc/Projects/Paack/wms-web/ui/dist"
+		"elm-stuff",
+		"node_modules",
+		".cache"
 	],
 	"font_face": "Fira Code Medium",
 	"font_options":
