@@ -121,6 +121,12 @@ box.panel-viewstack
 ; max-height: none !important
 }
 
+/* That menu that appears with Alt, must not destroy the UI */
+#toolbar-menubar:not([inactive="true"])
+{ margin-top: -29px
+; background: rgba(0, 0, 0, 0.5)
+}
+
 /* I'M WITH "SWAYWM", I DON'T NEED THESE */
 #minimize-button, #restore-button
 { display: none
