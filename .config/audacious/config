@@ -1,7 +1,12 @@
+[audacious]
+output_bit_depth=24
+shuffle=TRUE
+
 
 [resample]
 default-rate=96000
 method=0
 
 [skins]
+always_on_top=TRUE
 skin=/home/pedrohlc/.local/share/audacious/Skins/135799-winamp_classic

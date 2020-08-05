@@ -8,16 +8,18 @@ _HAS_MUSIC=$(pidof spotify)
 
 _PIDS=()
 function wallpaper() {
-    echo $2
-    mpv --title="$1-WScreenSaver" --ao=none \
+    local _TARGET="$1"
+    [[ -z "$(swaymsg -t get_outputs | grep -Po \"${_TARGET}\")" ]] && return
+    echo "Showing for ${_TARGET}"
+    mpv --quiet --title="WScreenSaver@${_TARGET}" --ao=none \
         --shuffle --loop-file=inf \
          $_MEDIA &
     _PIDS+=($!)
 }
 
-wallpaper eDP "$_GENERIC_GIFS"
-wallpaper HDMI "$_GENERIC_GIFS"
-wallpaper VGA "$_GENERIC_GIFS"
+wallpaper eDP-1
+wallpaper HDMI-A-1
+wallpaper DP-1
 
 swaylock -c 00000000
 kill ${_PIDS[@]}
