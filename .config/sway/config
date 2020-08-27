@@ -164,9 +164,9 @@ bindsym $mod+XF86MonBrightnessDown output * dpms off
 bindsym XF86WLAN exec $TERMINAL nmtui; mode "default"
 bindsym Print exec grim -t png - | tee /tmp/screenshot.png | wl-copy
 bindsym $mod+Print exec grim -t png -g "$(slurp)" - | tee /tmp/screenshot.png | wl-copy
-bindsym Shift+Print exec grim -t png -o DP-1 - | tee /tmp/screenshot.png | wl-copy
-bindsym Ctrl+Print exec grim -t png -o eDP-1 - | tee /tmp/screenshot.png | wl-copy
-bindsym Alt+Print exec grim -t png -o HDMI-A-1 - | tee /tmp/screenshot.png | wl-copy
+bindsym Shift+Print exec grim -t png -o $left - | tee /tmp/screenshot.png | wl-copy
+bindsym Ctrl+Print exec grim -t png -o $bottom - | tee /tmp/screenshot.png | wl-copy
+bindsym Alt+Print exec grim -t png -o $right - | tee /tmp/screenshot.png | wl-copy
 
 # window settings
 default_border pixel 1
@@ -196,27 +196,19 @@ mode "$mode_power" {
 }
 bindsym $mod+Shift+e mode "$mode_power"
 
-# LIMIT APPS MEMORY!!!!!
-set $usefull_sideapp systemd-run --user --scope -p 
-set $usefull_chrome $usefull_sideapp MemoryLimit=500M nowl google-chrome-stable
-set $usefull_firefox $usefull_sideapp MemoryLimit=2G firefox
-set $usefull_spotify $usefull_sideapp MemoryLimit=250M spotify
-set $usefull_telegram $usefull_sideapp MemoryLimit=250M telegram-desktop
-set $usefull_editor $usefull_sideapp MemoryLimit=500M $editor
-
 # A fast launcher
 set $mode_favs [f]irefox | [F]ileMgr | [v]olume | q[b]ittorrent | [T]elegram | [e]ditor | [S]potify
 mode "$mode_favs" {
-    bindsym f exec $usefull_firefox; mode "default"
+    bindsym f exec firefox; mode "default"
     bindsym Shift+f exec pcmanfm-qt; mode "default"
     bindsym v exec pavucontrol; mode "default"
     bindsym b exec qbittorrent; mode "default"
-    bindsym e exec $usefull_editor; mode "default"
+    bindsym e exec $editor; mode "default"
     bindsym shift+o exec nowl obs; mode "default"
-    bindsym shift+c exec $usefull_chrome; mode "default"
-    bindsym Shift+s exec ((pidof spotify) || $usefull_spotify); mode "default"
-    bindsym Shift+t exec $usefull_telegram; mode "default"
-    bindsym Ctrl+Escape exec $usefull_editor ~/.config/sway/config; mode "default"
+    bindsym shift+c exec nowl google-chrome-stable; mode "default"
+    bindsym Shift+s exec ((pidof spotify) || spotify); mode "default"
+    bindsym Shift+t exec telegram-desktop; mode "default"
+    bindsym Ctrl+Escape exec $editor ~/.config/sway/config; mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+Tab mode "$mode_favs"
