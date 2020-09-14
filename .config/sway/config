@@ -62,8 +62,7 @@ workspace C10 output $bottom
 # Pretty much i3 keybinds with small adjusted
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec wofi --gtk-dark --show run
-bindsym $mod+Shift+d exec wofi --gtk-dark --show drun
+bindsym $mod+d exec alacritty -t 'launcher' -e /usr/bin/sway-launcher-desktop
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -83,6 +82,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+u split h
 bindsym $mod+i split v
 bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle global
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -178,6 +178,8 @@ for_window [app_id="firefox" title="Password Required"] floating enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable; sticky enable
 for_window [app_id="firefox" title="Firefox - Sharing Indicator"] floating enable; sticky enable
 
+for_window [app_id="Alacritty" title="launcher"] floating enable; border pixel 4; sticky enable
+
 for_window [title="WScreenSaver@Global"] fullscreen enable global; sticky enable
 for_window [title="WScreenSaver@eDP-1"] move container to output "eDP-1"; fullscreen enable; sticky enable
 for_window [title="WScreenSaver@HDMI-A-1"] move container to output "HDMI-A-1"; fullscreen enable; sticky enable
@@ -217,7 +219,7 @@ bindsym $mod+Tab mode "$mode_favs"
 exec mako --output eDP-1
 
 # Screen sharing
-exec xdg-desktop-portal-wlr -p BGRx
+#exec xdg-desktop-portal-wlr -p BGRx
 
 # Wallpaper
 output '*' background /home/pedrohlc/.wallpaper.jpg fill

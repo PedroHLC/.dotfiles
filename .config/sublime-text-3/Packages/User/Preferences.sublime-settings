@@ -18,6 +18,7 @@
 		"*.zip",
 		"_build/**"
 	],
+	"close_windows_when_empty": false,
 	"color_scheme": "Packages/Colorsublime - Themes/Rebecca-dark.tmTheme",
 	"dictionary": "Packages/LanguagePortuguese/Portuguese (Brazilian).dic",
 	"extra_file_exclude_patterns":
