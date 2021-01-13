@@ -115,6 +115,9 @@ panel[position^="bottomcenter"]
 #urlbar-input
 { min-width: calc(350px + 2 * var(--toolbarbutton-inner-padding)) !important
 }
+moz-input-box.urlbar-input-box
+{ overflow: hidden
+}
 
 box.panel-viewstack
 { min-height: min-content

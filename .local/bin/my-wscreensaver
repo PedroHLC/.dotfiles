@@ -3,23 +3,23 @@ export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.x86_64.json
 
 cd ~/Videos
 _HAS_MUSIC=$(pidof spotify)
-[[ ${_HAS_MUSIC} ]] && _MEDIA='Fujiwara-Astrophysics.mp4' \
-    || _MEDIA='--playlist=my-wscreensaver.playlist.txt'
 
 _PIDS=()
 function wallpaper() {
     local _TARGET="$1"
+	[[ ${_HAS_MUSIC} ]] && _MEDIA='with-music.txt' \
+    	|| _MEDIA="$2"
     [[ -z "$(swaymsg -t get_outputs | grep -Po \"${_TARGET}\")" ]] && return
     echo "Showing for ${_TARGET}"
     mpv --quiet --title="WScreenSaver@${_TARGET}" --ao=none \
         --shuffle --loop-file=inf --scale=oversample \
-         $_MEDIA &
+        --playlist="$HOME/Videos/$_MEDIA" &
     _PIDS+=($!)
 }
 
-wallpaper eDP-1
-wallpaper HDMI-A-1
-wallpaper DP-1
+wallpaper eDP-1 'horizontal.txt'
+wallpaper HDMI-A-1 'horizontal.txt'
+wallpaper DP-1 'vertical.txt'
 
 swaylock -c 00000000
 kill ${_PIDS[@]}

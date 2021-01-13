@@ -8,11 +8,12 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 }
 
 # Default displays
-output "eDP-1" pos 1900 1080
-output "DP-1" pos 1920 0
-output "HDMI-A-1" pos 0 0
-set $left HDMI-A-1
-set $right DP-1
+output "DP-1" transform 270
+output "DP-1" pos 0 0
+output "eDP-1" pos 1080 1500
+output "HDMI-A-1" pos 1080 420
+set $left DP-1
+set $right HDMI-A-1
 set $bottom eDP-1
 
 # start locked
@@ -223,8 +224,8 @@ exec mako --output eDP-1
 
 # Wallpaper
 output '*' background /home/pedrohlc/.wallpaper.jpg fill
-output 'HDMI-A-1' background /home/pedrohlc/.wallpaper.HDMI-A-1.jpg fill
-output 'DP-1' background /home/pedrohlc/.wallpaper.DP-1.jpg fill
+output 'HDMI-A-1' background /home/pedrohlc/.wallpaper.HDMI-A-1.png fill
+output 'DP-1' background /home/pedrohlc/.wallpaper.DP-1.png fill
 output 'eDP-1' background /home/pedrohlc/.wallpaper.eDP-1.jpg fill
 
 # GNOME Theme

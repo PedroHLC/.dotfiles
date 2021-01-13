@@ -14,6 +14,7 @@
 		"CMake",
 		"Color Convert",
 		"Colorsublime",
+		"Confluence",
 		"Discord Rich Presence",
 		"Dockerfile Syntax Highlighting",
 		"EditorConfig",
@@ -55,11 +56,13 @@
 		"Smart VHDL",
 		"SublimeLinter",
 		"SystemVerilog",
-		"TabNine",
-		"Terminal",
+		"Tabnine",
+		"Terminus",
 		"Theme - Darkmatter",
 		"Theme - Nexus",
 		"Themes Menu Switcher",
+		"TOML",
+		"TypeScript Syntax",
 		"Verilog"
 	]
 }

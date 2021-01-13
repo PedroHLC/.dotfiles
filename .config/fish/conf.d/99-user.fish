@@ -6,3 +6,4 @@ alias set-vulkan-intel='export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_ic
 
 set fish_greeting '何でもは知らないわよ。知ってることだけ'
 set -gx PATH $PATH ~/.local/bin
+

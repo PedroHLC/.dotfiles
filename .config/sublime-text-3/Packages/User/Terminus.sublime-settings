@@ -1,0 +1,14 @@
+{
+    "default_config": {
+        "linux": "Fish"
+    },
+    "shell_configs": [
+        {
+            "name": "Fish",
+            "cmd": ["/usr/bin/fish", "--login"],
+            "env": {},
+            "enable": true,
+            "platforms": ["linux", "osx"]
+        }
+    ]
+}
