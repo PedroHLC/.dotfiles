@@ -7,14 +7,20 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 	xkb_layout br
 }
 
+# 75Hz + FreeSync
+output DP-1 adaptive_sync on
+output DP-1 max_render_time 1
+output DP-1 mode 2560x1080@75Hz
+
 # Default displays
-output "DP-1" transform 270
-output "DP-1" pos 0 0
-output "eDP-1" pos 1080 1500
-output "HDMI-A-1" pos 1080 420
-set $left DP-1
-set $right HDMI-A-1
-set $bottom eDP-1
+set $left HDMI-A-1
+set $right DP-1
+output $left transform 270
+output $left pos 0 0
+output $right pos 1080 420
+
+# Allow portals to work with this session
+exec systemctl --user import-environment WAYLAND_DISPLAY
 
 # start locked
 set $lock /home/pedrohlc/.local/bin/my-wscreensaver
@@ -45,20 +51,20 @@ workspace 3 output $left
 workspace 4 output $right
 workspace 5 output $left
 workspace 6 output $right
-workspace 7 output $bottom
-workspace 8 output $bottom
-workspace 9 output $bottom
-workspace 10 output $bottom
+workspace 7 output $left
+workspace 8 output $right
+workspace 9 output $left
+workspace 10 output $right
 workspace C1 output $left
 workspace C2 output $right
 workspace C3 output $left
 workspace C4 output $right
 workspace C5 output $left
 workspace C6 output $right
-workspace C7 output $bottom
-workspace C8 output $bottom
-workspace C9 output $bottom
-workspace C10 output $bottom
+workspace C7 output $left
+workspace C8 output $right
+workspace C9 output $left
+workspace C10 output $right
 
 # Pretty much i3 keybinds with small adjusted
 bindsym $mod+Return exec alacritty
@@ -166,7 +172,6 @@ bindsym XF86WLAN exec $TERMINAL nmtui; mode "default"
 bindsym Print exec grim -t png - | tee /tmp/screenshot.png | wl-copy
 bindsym $mod+Print exec grim -t png -g "$(slurp)" - | tee /tmp/screenshot.png | wl-copy
 bindsym Shift+Print exec grim -t png -o $left - | tee /tmp/screenshot.png | wl-copy
-bindsym Ctrl+Print exec grim -t png -o $bottom - | tee /tmp/screenshot.png | wl-copy
 bindsym Alt+Print exec grim -t png -o $right - | tee /tmp/screenshot.png | wl-copy
 
 # window settings
@@ -182,9 +187,11 @@ for_window [app_id="firefox" title="Firefox - Sharing Indicator"] floating enabl
 for_window [app_id="Alacritty" title="launcher"] floating enable; border pixel 4; sticky enable
 
 for_window [title="WScreenSaver@Global"] fullscreen enable global; sticky enable
-for_window [title="WScreenSaver@eDP-1"] move container to output "eDP-1"; fullscreen enable; sticky enable
-for_window [title="WScreenSaver@HDMI-A-1"] move container to output "HDMI-A-1"; fullscreen enable; sticky enable
-for_window [title="WScreenSaver@DP-1"] move container to output "DP-1"; fullscreen enable; sticky enable
+for_window [title="WScreenSaver@$left"] move container to output $left; fullscreen enable; sticky enable
+for_window [title="WScreenSaver@$right"] move container to output $right; fullscreen enable; sticky enable
+
+for_window [title="Slack \| mini panel"] floating enable; stick enable
+for_window [title="discord.com is sharing your screen."] move scratchpad
 
 # Proper options for poweroff
 set $mode_power [L]ogoff | [S]hutdown | [R]eboot | [l]ock | [s]uspend
@@ -217,16 +224,15 @@ mode "$mode_favs" {
 bindsym $mod+Tab mode "$mode_favs"
 
 # Notifications daemon
-exec mako --output eDP-1
+exec mako --output $right --anchor bottom-left
 
 # Screen sharing
 #exec xdg-desktop-portal-wlr -p BGRx
 
 # Wallpaper
 output '*' background /home/pedrohlc/.wallpaper.jpg fill
-output 'HDMI-A-1' background /home/pedrohlc/.wallpaper.HDMI-A-1.png fill
-output 'DP-1' background /home/pedrohlc/.wallpaper.DP-1.png fill
-output 'eDP-1' background /home/pedrohlc/.wallpaper.eDP-1.jpg fill
+output $right background /home/pedrohlc/.wallpaper.HDMI-A-1.png fill
+output $left background /home/pedrohlc/.wallpaper.DP-1.png fill
 
 # GNOME Theme
 set $gnome-schema org.gnome.desktop.interface

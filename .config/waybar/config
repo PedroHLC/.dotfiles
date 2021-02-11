@@ -4,15 +4,7 @@
 	"height": 21,
 	"modules-left": ["sway/workspaces", "tray", "sway/mode"],
 	"modules-center": [],
-	"modules-right": ["custom/radio", "custom/bluetooth", "custom/sshd", "custom/sessions", "backlight", "pulseaudio", "network", "disk", "memory", "cpu", "battery", "clock", "clock#br", "clock#es"],
-
-	"backlight": {
-		"device": "intel_backlight",
-		"format": "{icon} {percent}%",
-		"format-icons": [""],
-		"on-scroll-down": "intelbacklight -dec 5",
-		"on-scroll-up": "intelbacklight -inc 5"
-	},
+	"modules-right": ["custom/radio", "custom/bluetooth", "custom/sshd", "custom/sessions", "pulseaudio", "network", "disk", "memory", "cpu", "temperature#cpu", "temperature#gpu", "clock", "clock#br", "clock#es"],
 
 	"network": {
 		"format": "",
@@ -45,12 +37,6 @@
 		"on-click": "pactl set-sink-mute 0 toggle"
 	},
 
-	"battery": {
-		"format": "{icon} {capacity}%",
-		"format-charging": " {capacity}%",
-		"format-icons": ["", "", "", "", ""]	
-	},
-
 	"clock": {
 		"format": "{: %d/%m}"
 	},
@@ -67,6 +53,22 @@
 
 	"tray": {
 		"spacing": 4
+	},
+
+	"temperature#cpu": {
+		"hwmon-path": "/sys/class/hwmon/hwmon3/temp2_input",
+		"critical-threshold": 90,
+		"format-critical": "{temperatureC}°C ☢",
+		"format": " {temperatureC}°C",
+		"interval": 5
+	},
+
+	"temperature#gpu": {
+		"hwmon-path": "/sys/class/hwmon/hwmon5/temp2_input",
+		"critical-threshold": 110,
+		"format-critical": "{temperatureC}°C ☢",
+		"format": "{temperatureC}°C",
+		"interval": 3
 	},
 
 	"custom/sessions": {

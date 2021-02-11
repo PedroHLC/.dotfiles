@@ -1,0 +1,13 @@
+[
+    { "keys": ["ctrl+k", "ctrl+z"], "command": "zoom_pane", "args": {"fraction": 0.9} },
+    { "keys": ["ctrl+k", "ctrl+shift+z"], "command": "unzoom_pane", "args": {} },
+    {
+        "keys": ["ctrl+alt+t"],
+        "command": "terminus_open",
+        "args": {
+            "post_window_hooks": [
+                ["carry_file_to_pane", {"direction": "down"}]
+            ]
+        }
+    }
+]
