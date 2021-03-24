@@ -64,7 +64,7 @@
 }
 
 /* TOOLBAR BELOW PAGE */
-#main-window:not([sizemode="fullscreen"]) body > box:nth-child(8)
+#main-window:not([sizemode="fullscreen"]) body > box:nth-child(10)
 { position: fixed
 ; bottom: 0
 ; display: block

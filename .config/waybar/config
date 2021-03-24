@@ -4,7 +4,7 @@
 	"height": 21,
 	"modules-left": ["sway/workspaces", "tray", "sway/mode"],
 	"modules-center": [],
-	"modules-right": ["custom/radio", "custom/bluetooth", "custom/sshd", "custom/sessions", "pulseaudio", "network", "disk", "memory", "cpu", "temperature#cpu", "temperature#gpu", "clock", "clock#br", "clock#es"],
+	"modules-right": ["custom/radio", "custom/bluetooth", "custom/sshd", "custom/sessions", "pulseaudio", "network", "disk", "memory", "cpu", "temperature#cpu", "temperature#gpu", "clock", "clock#br", "clock#es", "clock#saqib"],
 
 	"network": {
 		"format": "",
@@ -49,6 +49,11 @@
 	"clock#es": {
 		"timezone": "Europe/Madrid",
 		"format": "{:ES[%H:%M]}"
+	},
+
+	"clock#saqib": {
+		"timezone": "Asia/Karachi",
+		"format": "{:PK[%H:%M]}"
 	},
 
 	"tray": {

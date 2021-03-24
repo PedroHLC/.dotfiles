@@ -50,6 +50,7 @@
 	[
 		".cache",
 		".git",
+		".parcel-cache",
 		"build",
 		"deps",
 		"dist",

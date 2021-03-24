@@ -1,0 +1,18 @@
+border-color=#88c0d0
+border-radius=8
+font=monospace 18
+default-timeout=9000
+width=640
+height=280
+
+[urgency=low]
+border-color=#cccccc
+
+[urgency=normal]
+border-color=#d08770
+default-timeout=15000
+
+[urgency=high]
+border-color=#bf616a
+default-timeout=0
+
