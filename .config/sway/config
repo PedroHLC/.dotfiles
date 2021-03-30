@@ -187,7 +187,7 @@ for_window [app_id="firefox" title="Password Required"] floating enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable; sticky enable
 for_window [app_id="firefox" title="Firefox - Sharing Indicator"] floating enable; sticky enable
 
-for_window [app_id="Alacritty" title="launcher"] floating enable; border pixel 4; sticky enable
+for_window [app_id="Alacritty" title="^launcher$"] floating enable; border pixel 4; sticky enable
 
 for_window [title="WScreenSaver@Global"] fullscreen enable global; sticky enable
 for_window [title="WScreenSaver@$left"] move container to output $left; fullscreen enable; sticky enable
