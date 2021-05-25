@@ -45,7 +45,7 @@
 
 /* TABS SAME SIZE AS TOOLBAR */
 :root
-{ --tab-min-height: 40px !important
+{ --tab-min-height: 31px !important
 }
 
 /* ONLY ICONS ON TABS */

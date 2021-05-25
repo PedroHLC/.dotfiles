@@ -62,6 +62,7 @@
 		"Themes Menu Switcher",
 		"TOML",
 		"TypeScript Syntax",
-		"Verilog"
-	]
+		"Verilog",
+		"VimModelines"
+	],
 }
