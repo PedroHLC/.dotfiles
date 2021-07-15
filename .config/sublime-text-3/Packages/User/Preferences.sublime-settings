@@ -1,18 +1,19 @@
 {
+	"hardware_acceleration": "opengl",
 	"auto_complete": true,
 	"auto_complete_triggers":
 	[
 		{
 			"characters": ".(){}[],'\"=<>/\\+-|&*%=$#@! ",
-			"selector": "source.python"
+			"selector": "source.python",
 		},
 		{
 			"characters": ":.(){}[],'\"=<>/\\+-|&*%=$#@! ",
-			"selector": "source & - source.python - constant.numeric"
+			"selector": "source & - source.python - constant.numeric",
 		},
 		{
 			"characters": " qazwsxedcrfvtgbyhnujmikolpQAZWSXEDCRFVTGBYHNUJMIKOLP",
-			"selector": "text"
+			"selector": "text",
 		}
 	],
 	"binary_file_patterns":
@@ -68,7 +69,7 @@
 		"RestructuredText",
 		"Six",
 		"Vintage",
-		"Vintageous"
+		"Vintageous",
 	],
 	"lsp_format_on_save": true,
 	"neovintageous_build_version": 11100,
@@ -82,5 +83,5 @@
 	"theme": "Darkmatter.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"vintageous_use_ctrl_keys": null,
-	"vintageous_use_super_keys": null
+	"vintageous_use_super_keys": null,
 }
