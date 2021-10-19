@@ -18,7 +18,7 @@ function wallpaper() {
 }
 
 wallpaper DP-1 'horizontal.txt'
-wallpaper HDMI-A-1 'vertical.txt'
 
 swaylock -c 00000000
 kill ${_PIDS[@]}
+

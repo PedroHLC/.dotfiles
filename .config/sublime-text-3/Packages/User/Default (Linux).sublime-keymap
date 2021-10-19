@@ -1,6 +1,7 @@
 [
     { "keys": ["ctrl+k", "ctrl+z"], "command": "zoom_pane", "args": {"fraction": 0.9} },
     { "keys": ["ctrl+k", "ctrl+shift+z"], "command": "unzoom_pane", "args": {} },
+    { "keys": ["ctrl+shift+m"], "command": "new_window_for_project" },
     {
         "keys": ["ctrl+alt+t"],
         "command": "terminus_open",

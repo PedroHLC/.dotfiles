@@ -3,17 +3,9 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 	xkb_layout br
 }
 
-# 75Hz + FreeSync
-#output DP-1 adaptive_sync on
+# FreeSync
+output DP-1 adaptive_sync on
 output DP-1 max_render_time 1
-output DP-1 mode 2560x1080@75Hz
-
-# Default displays
-set $left HDMI-A-1
-set $right DP-1
-output $left transform 270
-output $left pos 0 0
-output $right pos 1080 420
 
 # Allow portals to work with this session
 exec systemctl --user import-environment WAYLAND_DISPLAY
@@ -39,28 +31,6 @@ set $editor subl
 font pango:monospace 8
 font pango:Fira Sans Mono 8
 floating_modifier $mod
-
-# Per display workspace
-workspace 1 output $left
-workspace 2 output $right
-workspace 3 output $left
-workspace 4 output $right
-workspace 5 output $left
-workspace 6 output $right
-workspace 7 output $left
-workspace 8 output $right
-workspace 9 output $left
-workspace 10 output $right
-workspace C1 output $left
-workspace C2 output $right
-workspace C3 output $left
-workspace C4 output $right
-workspace C5 output $left
-workspace C6 output $right
-workspace C7 output $left
-workspace C8 output $right
-workspace C9 output $left
-workspace C10 output $right
 
 # Pretty much i3 keybinds with small adjusted
 bindsym $mod+Return exec alacritty
@@ -167,11 +137,6 @@ bindsym $mod+XF86MonBrightnessDown output * dpms off
 bindsym XF86WLAN exec $TERMINAL nmtui; mode "default"
 bindsym Print exec grim -t png - | tee /tmp/screenshot.png | wl-copy
 bindsym $mod+Print exec grim -t png -g "$(slurp)" - | tee /tmp/screenshot.png | wl-copy
-bindsym Shift+Print exec grim -t png -o $left - | tee /tmp/screenshot.png | wl-copy
-bindsym Alt+Print exec grim -t png -o $right - | tee /tmp/screenshot.png | wl-copy
-
-# 21:9 Helper
-bindsym $mod+Slash resize set width 640 px
 
 # window settings
 default_border pixel 1
@@ -226,15 +191,13 @@ bindsym $mod+Tab mode "$mode_favs"
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Notifications daemon
-exec mako --output $left --anchor bottom-left
+exec mako --anchor bottom-left
 
 # Pipewire virtual mic
-exec pw-loopback --capture-props='audio.position=[FL] audio.channels=1 node.target="alsa_input.usb-Focusrite_Scarlett_Solo_USB_P7AY7C60A16FA7-00.pro-input-0"' --playback-props='media.class=Audio/Source node.name=my-mic audio.position=[MONO]'
+exec ((pidof pw-loopback) || pw-loopback --capture-props='audio.position=[FL] audio.channels=1 node.target="alsa_input.usb-Focusrite_Scarlett_Solo_USB_P7AY7C60A16FA7-00.pro-input-0"' --playback-props='media.class=Audio/Source node.name=my-mic audio.position=[MONO]')
 
 # Wallpaper
 output '*' background /home/pedrohlc/.wallpaper.jpg fill
-output $right background /home/pedrohlc/.wallpaper.HDMI-A-1.png fill
-output $left background /home/pedrohlc/.wallpaper.DP-1.png fill
 
 # GNOME Theme
 set $gnome-schema org.gnome.desktop.interface

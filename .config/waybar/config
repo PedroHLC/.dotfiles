@@ -4,7 +4,7 @@
 	"height": 21,
 	"modules-left": ["sway/workspaces", "tray", "sway/mode"],
 	"modules-center": [],
-	"modules-right": ["custom/radio", "custom/bluetooth", "custom/sshd", "custom/sessions", "pulseaudio", "network", "disk", "memory", "cpu", "temperature#cpu", "temperature#gpu", "clock", "clock#br", "clock#es", "clock#saqib"],
+	"modules-right": ["custom/radio", "custom/bluetooth", "custom/sshd", "custom/sessions", "pulseaudio", "network", "disk", "memory", "cpu", "temperature#cpu", "temperature#gpu", "clock", "clock#br", "clock#es"],
 
 	"network": {
 		"format": "",
@@ -51,11 +51,6 @@
 		"format": "{:ES[%H:%M]}"
 	},
 
-	"clock#saqib": {
-		"timezone": "Asia/Karachi",
-		"format": "{:PK[%H:%M]}"
-	},
-
 	"tray": {
 		"spacing": 4
 	},
@@ -69,7 +64,7 @@
 	},
 
 	"temperature#gpu": {
-		"hwmon-path": "/sys/class/hwmon/hwmon5/temp2_input",
+		"hwmon-path": "/sys/class/hwmon/hwmon6/temp2_input",
 		"critical-threshold": 110,
 		"format-critical": "{temperatureC}°C ☢",
 		"format": "{temperatureC}°C",
