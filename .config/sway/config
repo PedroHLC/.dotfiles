@@ -3,9 +3,14 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 	xkb_layout br
 }
 
-# FreeSync
-output DP-1 adaptive_sync on
-output DP-1 max_render_time 1
+input "2362:597:UNIW0001:00_093A:0255_Touchpad" {
+	tap enable
+	middle_emulation enable
+}
+
+# Displays
+set $left eDP-1
+set $right HDMI-A-1
 
 # Allow portals to work with this session
 exec systemctl --user import-environment WAYLAND_DISPLAY
@@ -35,7 +40,7 @@ floating_modifier $mod
 # Pretty much i3 keybinds with small adjusted
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec alacritty -t 'launcher' -e /usr/bin/sway-launcher-desktop
+bindsym $mod+d exec alacritty -t 'launcher' -e /home/pedrohlc/.local/bin/sway-launcher-desktop
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -121,18 +126,27 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Lower bar
 bar {
-	swaybar_command waybar
+    font pango:Font Awesome 5 Free 9
+    status_command i3status-rs ~/.config/i3status-rust/config.toml
+    colors {
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
 }
 
 # Laptop keybings
-bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
-bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute 0 toggle
-bindsym XF86MonBrightnessUp exec intelbacklight -inc 10
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86MonBrightnessUp exec brightnessctl s "+10%"
 bindsym $mod+XF86MonBrightnessUp output * dpms on
-bindsym XF86MonBrightnessDown exec intelbacklight -dec 10
+bindsym XF86MonBrightnessDown exec brightnessctl s "10%-"
 bindsym $mod+XF86MonBrightnessDown output * dpms off
 bindsym XF86WLAN exec $TERMINAL nmtui; mode "default"
 bindsym Print exec grim -t png - | tee /tmp/screenshot.png | wl-copy
@@ -175,9 +189,10 @@ set $mode_favs [f]irefox | [F]ileMgr | [v]olume | q[b]ittorrent | [T]elegram | [
 mode "$mode_favs" {
     bindsym f exec firefox; mode "default"
     bindsym Shift+f exec pcmanfm-qt; mode "default"
-    bindsym v exec pavucontrol; mode "default"
+    bindsym v exec pavucontrol-qt; mode "default"
     bindsym b exec qbittorrent; mode "default"
     bindsym e exec $editor; mode "default"
+    bindsym s exec slack; mode "default"
     bindsym shift+o exec nowl obs; mode "default"
     bindsym shift+c exec nowl google-chrome-stable; mode "default"
     bindsym Shift+s exec ((pidof spotify) || spotify); mode "default"
@@ -191,10 +206,7 @@ bindsym $mod+Tab mode "$mode_favs"
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Notifications daemon
-exec mako --anchor bottom-left
-
-# Pipewire virtual mic
-exec ((pidof pw-loopback) || pw-loopback --capture-props='audio.position=[FL] audio.channels=1 node.target="alsa_input.usb-Focusrite_Scarlett_Solo_USB_P7AY7C60A16FA7-00.pro-input-0"' --playback-props='media.class=Audio/Source node.name=my-mic audio.position=[MONO]')
+exec mako
 
 # Wallpaper
 output '*' background /home/pedrohlc/.wallpaper.jpg fill

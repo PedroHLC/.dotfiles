@@ -17,7 +17,7 @@ function wallpaper() {
     _PIDS+=($!)
 }
 
-wallpaper DP-1 'horizontal.txt'
+wallpaper eDP-1 'horizontal.txt'
 
 swaylock -c 00000000
 kill ${_PIDS[@]}

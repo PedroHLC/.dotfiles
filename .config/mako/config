@@ -1,9 +1,10 @@
 border-color=#88c0d0
 border-radius=8
-font=monospace 18
+font=monospace 12
 default-timeout=9000
-width=640
-height=280
+width=320
+height=140
+anchor=top-right
 
 [urgency=low]
 border-color=#cccccc

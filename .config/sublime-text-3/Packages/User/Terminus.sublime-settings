@@ -5,7 +5,7 @@
     "shell_configs": [
         {
             "name": "Fish",
-            "cmd": ["/usr/bin/fish", "--login"],
+            "cmd": ["fish", "--login"],
             "env": {},
             "enable": true,
             "platforms": ["linux", "osx"]

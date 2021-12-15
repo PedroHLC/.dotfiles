@@ -10,7 +10,6 @@ Plug 'ajh17/vimcompletesme'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
 Plug 'lambdalisue/suda.vim'
-Plug 'floobits/floobits-neovim'
 Plug 'dag/vim-fish'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }

@@ -53,10 +53,8 @@
 		"Shell Turtlestein",
 		"ShellScriptImproved",
 		"SideBarEnhancements",
-		"Smart VHDL",
 		"SublimeLinter",
 		"Super Calculator",
-		"SystemVerilog",
 		"Tabnine",
 		"Terminus",
 		"Terraform",
@@ -65,7 +63,6 @@
 		"Themes Menu Switcher",
 		"TOML",
 		"TypeScript Syntax",
-		"Verilog",
 		"VimModelines",
 	],
 }
