@@ -149,8 +149,8 @@ bindsym $mod+XF86MonBrightnessUp output * dpms on
 bindsym XF86MonBrightnessDown exec brightnessctl s "10%-"
 bindsym $mod+XF86MonBrightnessDown output * dpms off
 bindsym XF86WLAN exec $TERMINAL nmtui; mode "default"
-bindsym Print exec grim -t png - | tee /tmp/screenshot.png | wl-copy
-bindsym $mod+Print exec grim -t png -g "$(slurp)" - | tee /tmp/screenshot.png | wl-copy
+bindsym Print exec grim -t png - | tee /tmp/screenshot.png | wl-copy -t 'image/png'
+bindsym $mod+Print exec grim -t png -g "$(slurp)" - | tee /tmp/screenshot.png | wl-copy -t 'image/png'
 
 # window settings
 default_border pixel 1
