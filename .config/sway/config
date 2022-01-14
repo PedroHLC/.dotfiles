@@ -13,7 +13,7 @@ set $left eDP-1
 set $right HDMI-A-1
 
 # Allow portals to work with this session
-exec systemctl --user import-environment WAYLAND_DISPLAY
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # start locked
 set $lock /home/pedrohlc/.local/bin/my-wscreensaver
