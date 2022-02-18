@@ -15,8 +15,11 @@ set $right HDMI-A-1
 # Allow portals to work with this session
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
+# Cheat ENV
+set $bin /home/pedrohlc/.local/bin
+
 # start locked
-set $lock /home/pedrohlc/.local/bin/my-wscreensaver
+set $lock $bin/my-wscreensaver
 exec $lock
 
 # lock after 30 min idle
@@ -40,7 +43,7 @@ floating_modifier $mod
 # Pretty much i3 keybinds with small adjusted
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec alacritty -t 'launcher' -e /home/pedrohlc/.local/bin/sway-launcher-desktop
+bindsym $mod+d exec alacritty -t 'launcher' -e $bin/sway-launcher-desktop
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -131,7 +134,7 @@ bar {
     status_command i3status-rs ~/.config/i3status-rust/config.toml
     colors {
         separator #666666
-        background #222222
+        background #222222dd
         statusline #dddddd
         focused_workspace #0088CC #0088CC #ffffff
         active_workspace #333333 #333333 #ffffff
@@ -141,14 +144,17 @@ bar {
 }
 
 # Laptop keybings
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-bindsym XF86MonBrightnessUp exec brightnessctl s "+10%"
-bindsym $mod+XF86MonBrightnessUp output * dpms on
-bindsym XF86MonBrightnessDown exec brightnessctl s "10%-"
-bindsym $mod+XF86MonBrightnessDown output * dpms off
-bindsym XF86WLAN exec $TERMINAL nmtui; mode "default"
+bindsym XF86AudioRaiseVolume exec volumectl -u up
+bindsym XF86AudioLowerVolume exec volumectl -u down
+bindsym XF86AudioMute exec volumectl toggle-mute
+
+bindsym XF86MonBrightnessUp exec lightctl up
+bindsym XF86MonBrightnessDown exec lightctl down
+
+bindsym $mod+XF86MonBrightnessUp output '*' dpms on
+bindsym $mod+XF86MonBrightnessDown output '*' dpms off
+
+bindsym XF86WLAN exec $TERMINAL_COMMAND nmtui; mode "default"
 bindsym Print exec grim -t png - | tee /tmp/screenshot.png | wl-copy -t 'image/png'
 bindsym $mod+Print exec grim -t png -g "$(slurp)" - | tee /tmp/screenshot.png | wl-copy -t 'image/png'
 
@@ -187,7 +193,7 @@ bindsym $mod+Shift+e mode "$mode_power"
 # A fast launcher
 set $mode_favs [f]irefox | [F]ileMgr | [v]olume | q[b]ittorrent | [T]elegram | [e]ditor | [S]potify
 mode "$mode_favs" {
-    bindsym f exec firefox; mode "default"
+    bindsym f exec $bin/firefox-gate; mode "default"
     bindsym Shift+f exec pcmanfm-qt; mode "default"
     bindsym v exec pavucontrol-qt; mode "default"
     bindsym b exec qbittorrent; mode "default"
@@ -206,7 +212,11 @@ bindsym $mod+Tab mode "$mode_favs"
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Notifications daemon
-exec mako
+exec swaync
+bindsym $mod+Shift+n exec swaync-client -t -sw
+
+# Media on-screen viewing
+exec avizo-service
 
 # Wallpaper
 output '*' background /home/pedrohlc/.wallpaper.jpg fill
