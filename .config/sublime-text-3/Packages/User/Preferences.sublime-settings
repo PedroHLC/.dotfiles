@@ -1,5 +1,4 @@
 {
-	"hardware_acceleration": "opengl",
 	"auto_complete": true,
 	"auto_complete_triggers":
 	[
@@ -84,4 +83,14 @@
 	"translate_tabs_to_spaces": true,
 	"vintageous_use_ctrl_keys": null,
 	"vintageous_use_super_keys": null,
+	"fonts_list":
+	    [
+	      "Borg Sans Mono",
+	      "Fira Code",
+	      "JetBrains Mono"
+	],
+	"line_padding_bottom": 0,
+	"line_padding_top": 0,
+	"word_wrap": "auto",
+	"wrap_width": 0,
 }

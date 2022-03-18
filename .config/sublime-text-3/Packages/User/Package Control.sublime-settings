@@ -10,6 +10,7 @@
 	"installed_packages":
 	[
 		"A File Icon",
+		"Babel",
 		"Clang Format",
 		"CMake",
 		"Color Convert",
@@ -22,6 +23,7 @@
 		"Elm Syntax Highlighting",
 		"FileBinder",
 		"Focus File on Sidebar",
+		"FontCycler",
 		"GitGutter",
 		"GraphQL",
 		"HexViewer",
@@ -32,6 +34,7 @@
 		"LDIF Syntax Highlighting",
 		"MarkdownPreview",
 		"MasmAssembly",
+		"MDX Syntax Highlighting",
 		"MIPS Syntax",
 		"Missing Palette Commands",
 		"MouseEventListener",
