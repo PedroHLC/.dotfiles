@@ -1,13 +1,9 @@
 # Super settings
-set $bin /home/pedrohlc/.local/bin
-set $keyboard "1:1:AT_Translated_Set_2_keyboard"
 set $touchpad "2362:597:UNIW0001:00_093A:0255_Touchpad"
-set $left eDP-1
-set $right HDMI-A-1
-set $lock $bin/my-wscreensaver
+set $lock my-wscreensaver
 
 # Input
-input $keyboard {
+input * {
 	xkb_layout br
 }
 
@@ -18,7 +14,8 @@ input $touchpad {
 }
 
 # Allow portals to work with this session
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+#exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+# NixOS seems to already do this!
 
 # start locked
 exec $lock
@@ -44,7 +41,7 @@ floating_modifier $mod
 # Pretty much i3 keybinds with small adjusted
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec alacritty -t 'launcher' -e $bin/sway-launcher-desktop
+bindsym $mod+d exec alacritty -t 'launcher' -e sway-launcher-desktop
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -177,8 +174,10 @@ for_window [app_id="" title=".+\(\/run\/current-system\/sw\/bin\/gpg .+"] floati
 for_window [app_id="Alacritty" title="^launcher$"] floating enable; border pixel 4; sticky enable
 
 for_window [title="WScreenSaver@Global"] fullscreen enable global; sticky enable
-for_window [title="WScreenSaver@$left"] move container to output $left; fullscreen enable; sticky enable
-for_window [title="WScreenSaver@$right"] move container to output $right; fullscreen enable; sticky enable
+for_window [title="WScreenSaver@eDP-1"] move container to output eDP-1; fullscreen enable; sticky enable
+for_window [title="WScreenSaver@DP-1"] move container to output DP-1; fullscreen enable; sticky enable
+for_window [title="WScreenSaver@DP-2"] move container to output DP-2; fullscreen enable; sticky enable
+for_window [title="WScreenSaver@HDMI-A-1"] move container to output HDMI-A-1; fullscreen enable; sticky enable
 
 for_window [title="Slack \| mini panel"] floating enable; stick enable
 for_window [title="discord.com is sharing your screen."] move scratchpad
@@ -199,7 +198,7 @@ bindsym $mod+Shift+e mode "$mode_power"
 # A fast launcher
 set $mode_favs [f]irefox | [F]ileMgr | [v]olume | q[b]ittorrent | [T]elegram | [e]ditor | [S]potify
 mode "$mode_favs" {
-    bindsym f exec $bin/firefox-gate; mode "default"
+    bindsym f exec firefox-gate; mode "default"
     bindsym Shift+f exec pcmanfm-qt; mode "default"
     bindsym v exec pavucontrol-qt; mode "default"
     bindsym b exec qbittorrent; mode "default"

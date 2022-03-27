@@ -1,4 +1,5 @@
 {
+	"hardware_acceleration": "opengl",
 	"auto_complete": true,
 	"auto_complete_triggers":
 	[

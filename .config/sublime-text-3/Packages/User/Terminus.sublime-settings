@@ -1,6 +1,6 @@
 {
     "default_config": {
-        "linux": "Fish"
+        "linux": "Fish",
     },
     "shell_configs": [
         {
@@ -8,7 +8,8 @@
             "cmd": ["fish", "--login"],
             "env": {},
             "enable": true,
-            "platforms": ["linux", "osx"]
+            "platforms": ["linux", "osx"],
         }
-    ]
+    ],
+    "theme": "adaptive",
 }
