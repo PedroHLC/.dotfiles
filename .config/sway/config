@@ -13,9 +13,8 @@ input $touchpad {
 	dwt enable
 }
 
-# Allow portals to work with this session
-#exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-# NixOS seems to already do this!
+# Allow things like portals to properly work with this session
+include /etc/sway/config.d/*
 
 # start locked
 exec $lock
