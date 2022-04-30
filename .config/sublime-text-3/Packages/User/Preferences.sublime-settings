@@ -94,4 +94,8 @@
 	"line_padding_top": 0,
 	"word_wrap": "auto",
 	"wrap_width": 0,
+	"dark_color_scheme": "Packages/Colorsublime - Themes/Rebecca-dark.tmTheme",
+	"light_color_scheme": "Sixteen.sublime-color-scheme",
+	"dark_theme": "Darkmatter.sublime-theme",
+	"light_theme": "Adaptive.sublime-theme",
 }
