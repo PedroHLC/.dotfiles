@@ -13,6 +13,13 @@ input $touchpad {
 	dwt enable
 }
 
+# Output
+output DP-1 {
+	mode 2560x1080@75Hz
+	adaptive_sync on
+	max_render_time 1
+}
+
 # Allow things like portals to properly work with this session
 include /etc/sway/config.d/*
 
@@ -211,9 +218,6 @@ mode "$mode_favs" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Tab mode "$mode_favs"
-
-# PolicyKit agent
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Notifications daemon
 exec swaync
