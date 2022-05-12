@@ -35,7 +35,7 @@
 		"_build/**"
 	],
 	"close_windows_when_empty": false,
-	"color_scheme": "Packages/Colorsublime - Themes/Rebecca-dark.tmTheme",
+	"color_scheme": "auto",
 	"dictionary": "Packages/LanguagePortuguese/Portuguese (Brazilian).dic",
 	"extra_file_exclude_patterns":
 	[
@@ -63,7 +63,7 @@
 	[
 		"subpixel_antialias"
 	],
-	"font_size": 9,
+	"font_size": 8,
 	"ignored_packages":
 	[
 		"RestructuredText",
@@ -80,7 +80,7 @@
 	],
 	"search_in_project_engine": "the_silver_searcher",
 	"spell_check": false,
-	"theme": "Darkmatter.sublime-theme",
+	"theme": "auto",
 	"translate_tabs_to_spaces": true,
 	"vintageous_use_ctrl_keys": null,
 	"vintageous_use_super_keys": null,
@@ -95,7 +95,7 @@
 	"word_wrap": "auto",
 	"wrap_width": 0,
 	"dark_color_scheme": "Packages/Colorsublime - Themes/Rebecca-dark.tmTheme",
-	"light_color_scheme": "Sixteen.sublime-color-scheme",
+	"light_color_scheme": "Packages/Colorsublime - Themes/cache/Colorsublime-Themes-master/themes/Kashmir-Light.tmTheme",
 	"dark_theme": "Darkmatter.sublime-theme",
 	"light_theme": "Adaptive.sublime-theme",
 }
