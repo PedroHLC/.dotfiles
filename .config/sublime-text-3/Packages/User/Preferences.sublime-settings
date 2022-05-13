@@ -66,6 +66,7 @@
 	"font_size": 8,
 	"ignored_packages":
 	[
+		"INI",
 		"RestructuredText",
 		"Six",
 		"Vintage",

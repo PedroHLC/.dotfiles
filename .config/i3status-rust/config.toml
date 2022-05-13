@@ -68,16 +68,18 @@ interval = 2
 block = "temperature"
 collapsed = false
 format = "{average}"
-chip = "coretemp-isa-0000"
+chip = "k10temp-pci-00c3"
+interval = 5
+
+[[block]]
+block = "temperature"
+collapsed = false
+format = "{average}"
+chip = "amdgpu-pci-0900"
 interval = 5
 
 [[block]]
 block = "sound"
-
-[[block]]
-block = "battery"
-interval = 5
-device = "BAT0"
 
 [[block]]
 block = "custom"

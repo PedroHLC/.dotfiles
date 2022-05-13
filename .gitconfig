@@ -1,7 +1,7 @@
 [user]
 	email = root@pedrohlc.com
 	name = PedroHLC ☭
-	signingkey = F5BFC029DA9A28CE
+	signingkey = DF4C6898CBDC6DF5
 [core]
 	editor = nvim
 [rerere]
